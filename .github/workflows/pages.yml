@@ -21,6 +21,8 @@ jobs:
       - name: Verify local files
         run: node scripts/validate-site.mjs
       - uses: actions/configure-pages@v5
+        with:
+          enablement: true
       - uses: actions/upload-pages-artifact@v4
         with:
           path: .
