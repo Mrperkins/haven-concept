@@ -1,16 +1,27 @@
-# HAVEN — Concept Studio
-A preliminary, responsive HAVEN Motors website with two design studies (P1 Core and P1R), custom vector vehicle illustrations, an interactive P1 configurator, design gallery, motion effects, and investor/manufacturing briefings.
+# HAVEN Motors — Design Studio v2
 
-**Status:** early-stage conceptual venture. Prices, parts fitment, equipment, safety approvals, timelines, and manufacturing claims are planning goals only.
+An independent concept studio for two proposed cars: the P1 Core and P1R Founder's Series.
 
-## Hosting
-The static site is deployable from main using .github/workflows/pages.yml. In GitHub Settings → Pages choose **GitHub Actions** as the source. Public publishing depends on repository visibility, plan and Pages availability. Until trademark review and marketing approval, robots.txt blocks indexing.
+## Running locally
 
-## Current asset note
-The original photorealistic HAVEN mockups and editable PDF/PPTX decks remain in the original local founder package. This repo contains self-contained vector concept illustrations and HTML printable partner decks as working stand-ins because the connected GitHub integration does not currently accept bulk binary source files by path. Replace assets/*.svg with the verified photorealistic renders and add real docs before external launch; see source archive in ChatGPT. The website will remain operational without those replacements.
+`python -m http.server 8000` and open `http://localhost:8000`
 
-## Security / product
-No checkout, live reservations, investor offering, email capture, production vehicle, certified bodywork, or supplier partnership exists. No private API keys are needed. No critical vehicle ECU is integrated into this site.
+## Functionality
 
-## Test
-Open index.html in a browser, try mobile navigation, gallery enlargement, color/stripe selector, copy-build, and both presentations. GitHub Pages is static, with no backend required.
+- Responsive cinematic vehicle showcase; accessible menu and skip navigation
+- Interactive P1 concept configurator with editable trim and upgrade pricing, saves selections locally
+- Lightbox gallery with concept art, alternate boards and engineering imagery
+- Local downloadable PDF and PowerPoint investor and manufacturing pitch decks
+- Motion respects reduced-motion preference; no reservations or payments accepted
+
+## Deploy
+
+A push to `main` triggers `.github/workflows/pages.yml`. Existing GitHub Pages URL: https://mrperkins.github.io/haven-concept/
+
+## Disclosures and constraints
+
+HAVEN is exploratory. Pricing and performance numbers are targets, not offers. Vehicle CAD, certifications, OEM licenses, manufacturing supply commitments and trademark clearance are unverified. Source images include AI renderings; other stock photos have credits and are third-party-hosted.
+
+## Publishing QA
+
+Run `node scripts/validate-site.mjs`, verify Pages workflow, then test browser presentation on desktop/tablet/mobile and inspect the interactive configurator. The repository's first version used SVG placeholders; v2 upgrades to original HAVEN concept renders and PDF/PPTX decks.
