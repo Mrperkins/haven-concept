@@ -7,7 +7,7 @@
 (()=>{'use strict';
  const car=document.getElementById('configCar');if(!car)return;
  const canvas=document.createElement('canvas');canvas.className='paint-canvas';canvas.setAttribute('role','img');canvas.setAttribute('aria-label','HAVEN P1 selected exterior paint preview');car.insertAdjacentElement('afterend',canvas);
- const ctx=canvas.getContext('2d',{willReadFrequently:true});const source=new Image();source.decoding='async';source.src=car.getAttribute('src');
+ const ctx=canvas.getContext('2d',{willReadFrequently:true});const source=new Image();source.decoding='async';
  const paints={graphite:[50,54,58],silver:[196,190,186],blue:[57,75,92],red:[105,54,59],bronze:[120,100,70]};let selected='graphite',base=null,mask=null,ready=false;
  // This conservative per-pixel classification recolors only the painted vehicle candidate.
  // Shadows, white specular highlights, near-black tires, windows and backdrop are excluded.
@@ -21,7 +21,7 @@
  for(let p=0;p<mask.length;p++){const a=mask[p];if(a<.01)continue;const i=p*4;const old=(d[i]+d[i+1]+d[i+2])/3;const luminance=Math.max(.27,Math.min(1.52,old/82));for(let k=0;k<3;k++){const target=Math.min(255,paint[k]*luminance);out[i+k]=d[i+k]*(1-a)+target*a;}}
  ctx.putImageData(new ImageData(out,w,h),0,0);canvas.setAttribute('aria-label','HAVEN P1 in '+selected+' concept paint');}
  source.onload=()=>{const w=source.naturalWidth,h=source.naturalHeight;if(!w||!h)return;canvas.width=w;canvas.height=h;ctx.drawImage(source,0,0);try{base=ctx.getImageData(0,0,w,h);mask=buildMask(base.data,w,h);ready=true;car.classList.add('paint-source-hidden');render()}catch(e){canvas.hidden=true;car.classList.remove('paint-source-hidden');console.warn('Vehicle preview fallback:',e)}};
- source.onerror=()=>{canvas.hidden=true;car.classList.remove('paint-source-hidden')};window.havenSetPaint=color=>{if(!paints[color])return;selected=color;render()};
+ source.onerror=()=>{canvas.hidden=true;car.classList.remove('paint-source-hidden')};source.src=car.getAttribute('src');window.havenSetPaint=color=>{if(!paints[color])return;selected=color;render()};
  const saved=(()=>{try{return JSON.parse(localStorage.getItem('haven-concept-build')||'null')}catch(e){return null}})();if(saved&&paints[saved.color])selected=saved.color;
  document.querySelectorAll('.stock-photo img').forEach((im,i)=>{im.addEventListener('error',()=>{im.onerror=null;im.src=['assets/p1-cutaway.webp','assets/p1-sketches.webp','assets/p1r-sheet.webp'][i%3]},{once:true})});
  const rail=document.createElement('div');rail.className='motion-rail';rail.setAttribute('aria-label','HAVEN design principles');rail.innerHTML='<span>DESIGNED TO EVOLVE　 ✦　 BUILT TO BE YOURS　 ✦　 OPENARCHITECTURE　 ✦　 DESIGN WITHOUT EXPIRATION　 ✦　 DESIGNED TO EVOLVE　 ✦　 BUILT TO BE YOURS　 ✦　 OPENARCHITECTURE　 ✦　 DESIGN WITHOUT EXPIRATION　 ✦　</span>';document.querySelector('.hero')?.after(rail);
