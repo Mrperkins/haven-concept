@@ -7,7 +7,29 @@ const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const fine = matchMedia('(pointer: fine)').matches;
 
 /* ---------- intro ---------- */
-requestAnimationFrame(() => requestAnimationFrame(() => document.body.classList.add('loaded')));
+const bootEl = $('#boot');
+function startSite() { document.body.classList.add('loaded'); }
+if (bootEl && !reduced) {
+  const num = $('#bootNum'), fill = $('#bootBar'), t0 = performance.now();
+  let loadDone = document.readyState === 'complete';
+  addEventListener('load', () => { loadDone = true; });
+  (function step(t) {
+    const el = t - t0;
+    if (el > 2800) loadDone = true;
+    let p = Math.min(el / 1200, 1);
+    if (!loadDone) p = Math.min(p, .94);
+    num.textContent = String(Math.round(p * 100)).padStart(3, '0');
+    fill.style.transform = `scaleX(${p})`;
+    if (p >= 1 && loadDone) {
+      bootEl.classList.add('done');
+      setTimeout(startSite, 450);
+      setTimeout(() => bootEl.remove(), 1300);
+    } else requestAnimationFrame(step);
+  })(t0);
+} else {
+  if (bootEl) bootEl.remove();
+  requestAnimationFrame(() => requestAnimationFrame(startSite));
+}
 
 /* ---------- reveal on scroll ---------- */
 if ('IntersectionObserver' in window && !reduced) {
@@ -51,6 +73,10 @@ const models = $$('[data-model]');
 const lightSec = $('#lightMedia')?.parentElement;
 const studio = $('#studio'), studioTrack = $('#studioTrack');
 const timeline = $('#timeline'), steps = $$('[data-step]');
+const railEl = $('#rail'), railLinks = $$('.rail a'), railPct = $('#railPct');
+const railSecs = railLinks.map(a => document.getElementById(a.dataset.sec));
+const slides = $$('[data-slide]');
+let railCur = -1;
 
 let hsOverflow = 0;
 function setupStudio() {
@@ -106,6 +132,19 @@ function tick() {
       studioTrack.style.transform = `translate3d(${(-p * hsOverflow).toFixed(1)}px,0,0)`;
     }
   }
+  if (railEl) {
+    const prog = max > 0 ? clamp(y / max) : 0;
+    railEl.style.setProperty('--rp', prog.toFixed(3));
+    railPct.textContent = String(Math.round(prog * 100)).padStart(2, '0');
+    let cur = 0;
+    railSecs.forEach((el, i) => { if (el && el.getBoundingClientRect().top <= H * .45) cur = i; });
+    if (cur !== railCur) { railLinks.forEach((a, i) => a.classList.toggle('on', i === cur)); railCur = cur; }
+  }
+  if (!reduced) slides.forEach(el => {
+    const r = el.getBoundingClientRect();
+    const p = clamp((H - r.top) / (H + r.height));
+    el.style.setProperty('--sx', ((p - .5) * -38).toFixed(2) + 'vw');
+  });
   if (timeline) {
     const r = timeline.getBoundingClientRect();
     timeline.style.setProperty('--tl', clamp((H * .62 - r.top) / Math.max(1, r.height * .92)).toFixed(3));
@@ -355,12 +394,16 @@ function notify(msg) {
 (() => {
   const box = $('#lightbox'), img = $('#lightboxImage'), cap = $('#lightboxCaption'), close = $('#lightboxClose');
   let last = null;
-  $$('.card').forEach(c => c.addEventListener('click', () => {
+  img.addEventListener('load', () => { img.style.maxWidth = Math.max(320, img.naturalWidth * 2) + 'px'; });
+  document.addEventListener('click', e => {
+    const c = e.target.closest('[data-full]');
+    if (!c || c.closest('#lightbox')) return;
     last = document.activeElement;
-    img.src = c.dataset.full; img.alt = $('img', c).alt; cap.textContent = c.dataset.caption;
+    img.style.maxWidth = '';
+    img.src = c.dataset.full; img.alt = $('img', c)?.alt || ''; cap.textContent = c.dataset.caption || '';
     box.classList.add('open'); box.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden'; close.focus();
-  }));
+  });
   function hide() {
     box.classList.remove('open'); box.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = ''; img.removeAttribute('src');
@@ -374,4 +417,133 @@ function notify(msg) {
     if (e.key === 'Tab') { e.preventDefault(); close.focus(); }
   });
 })();
+
+/* ---------- segmented controls ---------- */
+function seg(root, attr, cb) {
+  const btns = $$('button', root);
+  const pick = i => {
+    btns.forEach((b, j) => { b.classList.toggle('on', j === i); b.setAttribute('aria-selected', String(j === i)); b.tabIndex = j === i ? 0 : -1; });
+    cb(btns[i].dataset[attr]);
+  };
+  btns.forEach((b, i) => {
+    b.tabIndex = i === 0 ? 0 : -1;
+    b.addEventListener('click', () => pick(i));
+    b.addEventListener('keydown', e => {
+      if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+        e.preventDefault();
+        const n = (i + (e.key === 'ArrowRight' ? 1 : btns.length - 1)) % btns.length;
+        pick(n); btns[n].focus();
+      }
+    });
+  });
+}
+
+/* ---------- model panels: trigger gauges / pips ---------- */
+(() => {
+  const ms = $$('[data-model]');
+  if (reduced || !('IntersectionObserver' in window)) { ms.forEach(m => m.classList.add('in')); return; }
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: .55 });
+  ms.forEach(m => io.observe(m));
+})();
+
+/* ---------- hero HUD: mission clock + telemetry ticker ---------- */
+(() => {
+  const clock = $('#clock');
+  if (clock && !reduced) {
+    const t0 = Date.now();
+    setInterval(() => {
+      const t = Math.floor((Date.now() - t0) / 1000);
+      clock.textContent = [Math.floor(t / 3600), Math.floor(t / 60) % 60, t % 60].map(n => String(n).padStart(2, '0')).join(':');
+    }, 1000);
+  }
+  const box = $('.hud-tele'), k = $('#teleK'), v = $('#teleV');
+  if (!box || reduced) return;
+  const items = [['Program', 'HAVEN Concept Studio'], ['Lineup', '4 concept vehicles'], ['P1R target', '800–1,000 hp'], ['Stage', 'Concept development'], ['P1 target', '$17,990 delivered']];
+  let i = 0;
+  setInterval(() => {
+    box.classList.add('swap');
+    setTimeout(() => { i = (i + 1) % items.length; k.textContent = items[i][0]; v.textContent = items[i][1]; box.classList.remove('swap'); }, 360);
+  }, 3400);
+})();
+
+/* ---------- cursor ring ---------- */
+if (fine && !reduced) {
+  const c = document.createElement('div');
+  c.className = 'cursor'; c.setAttribute('aria-hidden', 'true');
+  document.body.append(c);
+  let x = -100, y = -100, tx = -100, ty = -100;
+  addEventListener('pointermove', e => { tx = e.clientX; ty = e.clientY; c.classList.add('vis'); }, { passive: true });
+  document.documentElement.addEventListener('pointerleave', () => c.classList.remove('vis'));
+  document.addEventListener('pointerover', e => c.classList.toggle('hover', !!e.target.closest('a,button,label,[data-full]')));
+  (function loop() { x += (tx - x) * .2; y += (ty - y) * .2; c.style.transform = `translate(${x}px,${y}px)`; requestAnimationFrame(loop); })();
+}
+
+/* ---------- blueprint / dimensions ---------- */
+(() => {
+  const bp = $('#bp'), cells = $('#specCells'), tabs = $('#specTabs');
+  if (!bp) return;
+  const D = {
+    p1: { len: 195.7, lenmm: '4,970 mm', wb: 114.2, w: 75.6, wmm: '1,921 mm', hlk: 'Cabin targets', hl: '13-inch display<br>12.3-inch cluster' },
+    p1r: { len: 197.8, lenmm: '5,025 mm', wb: 115.4, w: 79.1, wmm: '2,009 mm', hlk: 'Performance targets', hl: '800–1,000 hp<br>0–60 mph ≤ 2.5 s' }
+  };
+  const q = k => $(`[data-k="${k}"]`, cells);
+  const cur = { len: 0, wb: 0, w: 0 };
+  let key = 'p1', raf = 0;
+  const paint = () => {
+    ['len', 'wb', 'w'].forEach(k => { q(k).textContent = cur[k].toFixed(1); });
+    $('#bpLen').textContent = cur.len.toFixed(1) + ' in';
+    $('#bpWb').textContent = cur.wb.toFixed(1) + ' in';
+  };
+  function go(k0) {
+    key = k0;
+    const t = D[k0], from = { ...cur }, t0 = performance.now();
+    q('lenmm').textContent = t.lenmm; q('wmm').textContent = t.wmm; q('hlk').textContent = t.hlk; q('hl').innerHTML = t.hl;
+    cancelAnimationFrame(raf);
+    (function step(n) {
+      const k = clamp((n - t0) / 1200), e = 1 - Math.pow(1 - k, 3);
+      ['len', 'wb', 'w'].forEach(m => { cur[m] = from[m] + (t[m] - from[m]) * e; });
+      paint();
+      if (k < 1) raf = requestAnimationFrame(step);
+    })(t0);
+  }
+  if (reduced || !('IntersectionObserver' in window)) { Object.assign(cur, { len: D.p1.len, wb: D.p1.wb, w: D.p1.w }); paint(); }
+  else {
+    paint();
+    new IntersectionObserver((es, io) => { if (es[0].isIntersecting) { io.disconnect(); go(key); } }, { threshold: .35 }).observe(bp);
+  }
+  seg(tabs, 'spec', k => { if (reduced) { Object.assign(cur, { len: D[k].len, wb: D[k].wb, w: D[k].w }); q('lenmm').textContent = D[k].lenmm; q('wmm').textContent = D[k].wmm; q('hlk').textContent = D[k].hlk; q('hl').innerHTML = D[k].hl; paint(); } else go(k); });
+})();
+
+/* ---------- SUV switcher ---------- */
+(() => {
+  const wrap = $('#suvWrap'), tabs = $('#suvTabs');
+  if (!wrap) return;
+  const P = d => `assets/haven-suv/${d}/`;
+  const SUV = {
+    core: { dir: 'core', name: 'HAVEN Core SUV', fig: 'Fig. A — Core SUV · concept render', hero: 'exterior-hero-clean.webp', lede: 'Everyday practicality, advanced safety thinking and technology you can live with. A family-minded SUV built on the same keep-it-for-life idea.', tags: ['Family-minded concept', 'Upgrade-ready by intent', 'Concept art crop'] },
+    reserve: { dir: 'reserve', name: 'HAVEN Reserve SUV', fig: 'Fig. B — Reserve SUV · concept render', hero: 'exterior-hero-clean.webp', lede: 'The flagship expression of the idea: commanding presence, richer materials and the most ambitious take on a car you keep for life.', tags: ['Flagship concept', 'Executive cabin', 'Concept art crop'] }
+  };
+  const files = { front: 'exterior-front.webp', side: 'exterior-side.webp', rear: 'exterior-rear.webp', cockpit: 'interior-cockpit.webp', second: 'interior-second-row.webp' };
+  const labels = { front: 'front view', side: 'side profile', rear: 'rear view', cockpit: 'cockpit', second: 'second-row seating' };
+  function apply(k) {
+    const d = SUV[k], base = P(d.dir);
+    const hero = $('#suvHero');
+    hero.src = base + d.hero; hero.alt = d.name + ' concept, front three-quarter view';
+    $('#suvFig').textContent = d.fig; $('#suvName').textContent = d.name; $('#suvLede').textContent = d.lede;
+    $('#suvTags').innerHTML = d.tags.map(t => `<li>${t}</li>`).join('');
+    const short = d.name.replace('HAVEN ', '');
+    $$('[data-view],[data-cabin]', wrap).forEach(b => {
+      const key = b.dataset.view || b.dataset.cabin, im = $('img', b);
+      b.dataset.full = base + files[key];
+      b.dataset.caption = short + ' · ' + labels[key];
+      im.src = base + files[key]; im.alt = d.name + ', ' + labels[key];
+    });
+  }
+  seg(tabs, 'suv', k => {
+    if (reduced) { apply(k); return; }
+    wrap.classList.add('swap');
+    setTimeout(() => { apply(k); setTimeout(() => wrap.classList.remove('swap'), 80); }, 300);
+  });
+})();
+
 })();

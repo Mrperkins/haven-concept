@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#050506">
+<meta name="theme-color" content="#030304">
 <meta name="color-scheme" content="dark">
-<meta name="description" content="HAVEN Motors concept studio. Two proposed cars, one idea: built to evolve. Explore the P1 Core and P1R Founder's Series concepts.">
+<meta name="description" content="HAVEN Motors concept studio. Four proposed vehicles, one idea: built to evolve. Explore the P1 Core, P1R Founder's Series and the Core and Reserve SUV concepts.">
 <meta property="og:title" content="HAVEN — Built to evolve">
-<meta property="og:description" content="A new philosophy of automotive ownership. Concept models P1 and P1R.">
+<meta property="og:description" content="A new philosophy of automotive ownership. Concept sedans P1 and P1R, plus Core and Reserve SUVs.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://mrperkins.github.io/haven-concept/assets/p1-hero.webp">
 <meta property="og:url" content="https://mrperkins.github.io/haven-concept/">
@@ -19,17 +19,43 @@
 <link rel="preload" as="image" href="assets/p1-hero.webp">
 <link rel="stylesheet" href="css/site.css">
 <script>document.documentElement.className='js';</script>
-<script defer src="js/site.js"></script><script defer src="js/haven-assets.js"></script><link rel="stylesheet" href="css/haven-assets.css">
+<script defer src="js/site.js"></script>
 </head>
 <body>
+<div class="boot" id="boot" aria-hidden="true">
+  <div class="boot-inner">
+    <span class="boot-logo">HΛVEN</span>
+    <div class="boot-bar"><i id="bootBar"></i></div>
+    <div class="boot-meta"><span>Initializing concept studio</span><span id="bootNum">000</span></div>
+  </div>
+</div>
+<div class="grain" aria-hidden="true"></div>
 <div class="progress" id="progress" aria-hidden="true"></div>
 <a class="skip" href="#main">Skip to content</a>
+
+<nav class="rail" id="rail" aria-label="Page sections">
+  <ol>
+    <li><a href="#top" data-sec="top"><i></i><span>Intro</span></a></li>
+    <li><a href="#philosophy" data-sec="philosophy"><i></i><span>Philosophy</span></a></li>
+    <li><a href="#models" data-sec="models"><i></i><span>Sedans</span></a></li>
+    <li><a href="#spec" data-sec="spec"><i></i><span>Dimensions</span></a></li>
+    <li><a href="#suv" data-sec="suv"><i></i><span>SUVs</span></a></li>
+    <li><a href="#architecture" data-sec="architecture"><i></i><span>Architecture</span></a></li>
+    <li><a href="#interior" data-sec="interior"><i></i><span>Interior</span></a></li>
+    <li><a href="#studio" data-sec="studio"><i></i><span>Studio</span></a></li>
+    <li><a href="#configure" data-sec="configure"><i></i><span>Configure</span></a></li>
+    <li><a href="#roadmap" data-sec="roadmap"><i></i><span>Roadmap</span></a></li>
+    <li><a href="#collaborate" data-sec="collaborate"><i></i><span>Partners</span></a></li>
+  </ol>
+  <div class="rail-pct"><b id="railPct">00</b><span>%</span></div>
+</nav>
 
 <header class="nav" id="nav">
   <a class="wordmark" href="#top" aria-label="HAVEN home">HΛVEN</a>
   <nav class="nav-links" id="siteNav" aria-label="Primary">
-    <a href="#models">Vehicles</a>
-    <a href="#architecture">OpenArchitecture</a>
+    <a href="#models">Sedans</a>
+    <a href="#suv">SUVs</a>
+    <a href="#architecture">Architecture</a>
     <a href="#interior">Interior</a>
     <a href="#studio">Studio</a>
     <a href="#configure">Configure</a>
@@ -49,13 +75,21 @@
       <div class="hero-shade" aria-hidden="true"></div>
       <canvas class="hero-dust" id="heroDust" aria-hidden="true"></canvas>
     </div>
+    <div class="hud" aria-hidden="true">
+      <i class="br tl"></i><i class="br tr"></i><i class="br bl"></i><i class="br bR"></i>
+      <div class="hud-scan"></div>
+      <div class="hud-top">
+        <div class="hud-clock"><span>T+</span><b id="clock">00:00:00</b></div>
+        <div class="hud-tele"><span id="teleK">Program</span><b id="teleV">HAVEN Concept Studio</b></div>
+      </div>
+    </div>
     <div class="hero-content" id="heroContent">
       <p class="eyebrow" data-intro="0">HAVEN MOTORS &nbsp;·&nbsp; CONCEPT STUDIO 2026</p>
       <h1 id="heroTitle">
         <span class="mask"><span data-intro="1">Built to</span></span>
         <span class="mask"><span data-intro="2"><em class="shimmer">evolve.</em></span></span>
       </h1>
-      <p class="hero-sub" data-intro="3">Two ambitious cars. One idea:<br>own something that gets better with time.</p>
+      <p class="hero-sub" data-intro="3">Four concept vehicles. One idea:<br>own something that gets better with time.</p>
       <div class="hero-actions" data-intro="4">
         <a class="btn btn-solid" href="#models">Meet the vehicles</a>
         <a class="btn btn-ghost" href="#configure">Configure P1</a>
@@ -70,8 +104,8 @@
   <!-- MARQUEE -->
   <div class="marquee" aria-hidden="true"><div class="marquee-track"><span>Designed to evolve</span><span>Built to be yours</span><span>OpenArchitecture</span><span>Design without expiration</span><span>Designed to evolve</span><span>Built to be yours</span><span>OpenArchitecture</span><span>Design without expiration</span></div></div>
 
-  <!-- MANIFESTO (scroll-linked words) -->
-  <section class="manifesto" id="philosophy" data-pin aria-label="Philosophy">
+  <!-- MANIFESTO -->
+  <section class="manifesto" id="philosophy" aria-label="Philosophy">
     <div class="manifesto-sticky">
       <p class="kicker" data-reveal>01 — The point of HAVEN</p>
       <h2 class="words" id="manifestoWords">The next great car is the one you keep. Features age. Screens lag. Parts turn proprietary. We think ownership should mean something again.</h2>
@@ -84,11 +118,15 @@
     <div class="belief" data-reveal style="--d:.2s"><b>03</b><h3>Make it yours.</h3><p>Keep the foundation. Change the details, capability and experience.</p></div>
   </section>
 
-  <!-- MODELS (stacking panels) -->
-  <section class="models" id="models" aria-label="Vehicles">
+  <div class="outline" data-slide aria-hidden="true"><span>HΛVEN&nbsp;&nbsp;HΛVEN&nbsp;&nbsp;HΛVEN&nbsp;&nbsp;HΛVEN</span></div>
+
+  <!-- SEDANS (stacking panels) -->
+  <section class="models" id="models" aria-label="Sedans">
     <article class="model" id="p1" data-model aria-labelledby="p1Title">
       <img class="model-img" src="assets/brand-detail.webp" alt="HAVEN P1 Core concept, front three-quarter view" loading="lazy">
       <div class="model-scrim" aria-hidden="true"></div>
+      <div class="model-hud" aria-hidden="true"><i class="dot"></i><span>Model 01 / 02 — P1 Core</span></div>
+      <div class="pips" aria-hidden="true"><small>Seating</small><div><i></i><i></i><i></i><i></i><i></i></div><b>5 seats</b></div>
       <div class="model-copy">
         <p class="kicker">02 — The everyday icon</p>
         <h2 id="p1Title">P1 <span>Core</span></h2>
@@ -106,6 +144,11 @@
     <article class="model" id="p1r" data-model aria-labelledby="p1rTitle">
       <img class="model-img" src="assets/p1r-cinematic.webp" alt="HAVEN P1R Founder's Series performance grand tourer concept at dusk" loading="lazy">
       <div class="model-scrim" aria-hidden="true"></div>
+      <div class="model-hud" aria-hidden="true"><i class="dot"></i><span>Model 02 / 02 — P1R Founder's</span></div>
+      <div class="gauges" aria-hidden="true">
+        <div class="gauge"><svg viewBox="0 0 120 120"><circle class="g-bg" cx="60" cy="60" r="52"/><circle class="g-fg" cx="60" cy="60" r="52" pathLength="100" style="--v:90"/></svg><div><b>800–1,000</b><small>hp target</small></div></div>
+        <div class="gauge"><svg viewBox="0 0 120 120"><circle class="g-bg" cx="60" cy="60" r="52"/><circle class="g-fg" cx="60" cy="60" r="52" pathLength="100" style="--v:82"/></svg><div><b>≤ 2.5 s</b><small>0–60 target</small></div></div>
+      </div>
       <div class="model-copy">
         <p class="kicker">03 — The halo</p>
         <h2 id="p1rTitle">P1R <span>Founder's</span></h2>
@@ -121,10 +164,117 @@
     </article>
   </section>
 
+  <!-- DIMENSIONS / BLUEPRINT -->
+  <section class="spec" id="spec" aria-labelledby="specTitle">
+    <div class="section-head">
+      <p class="kicker" data-reveal>04 — Concept dimensions</p>
+      <h2 id="specTitle" data-reveal>Proportion<br><span class="dim">is a feature.</span></h2>
+      <p class="lede" data-reveal>The sedan studies at a glance. Choose a model to see its target dimensions drawn in.</p>
+    </div>
+    <div class="spec-wrap">
+      <div class="seg" role="tablist" aria-label="Choose sedan" id="specTabs">
+        <button role="tab" class="on" data-spec="p1" aria-selected="true">P1 Core</button>
+        <button role="tab" data-spec="p1r" aria-selected="false">P1R Founder's</button>
+      </div>
+      <div class="bp" id="bp" data-reveal>
+        <svg viewBox="0 40 960 400" role="img" aria-label="Stylized side profile of a HAVEN sedan with its overall length and wheelbase dimensioned" id="bpSvg">
+          <defs>
+            <pattern id="bpGrid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" class="grid-l"/></pattern>
+            <linearGradient id="bpScan" x1="0" x2="1"><stop offset="0" stop-color="#8fd3ff" stop-opacity="0"/><stop offset=".5" stop-color="#8fd3ff" stop-opacity=".35"/><stop offset="1" stop-color="#8fd3ff" stop-opacity="0"/></linearGradient>
+          </defs>
+          <rect x="0" y="40" width="960" height="400" fill="url(#bpGrid)"/>
+          <rect class="bp-scan" x="0" y="40" width="140" height="400" fill="url(#bpScan)"/>
+          <line class="ground draw" x1="40" y1="352" x2="920" y2="352" pathLength="1"/>
+          <g class="car">
+            <path class="body draw" pathLength="1" d="M104 326 L98 286 C98 266 106 256 122 252 L292 222 C332 190 394 160 466 154 C562 146 656 158 734 210 L810 230 C840 238 854 254 856 284 L852 326 L755 326 A60 60 0 1 0 645 326 L315 326 A60 60 0 1 0 205 326 L104 326 Z"/>
+            <path class="glass draw" pathLength="1" d="M318 224 C350 196 400 176 466 170 C548 164 626 176 696 218 Z"/>
+            <path class="detail draw" pathLength="1" d="M126 268 L848 264"/>
+            <path class="light-l draw" pathLength="1" d="M108 262 L158 256"/>
+            <path class="light-l draw" pathLength="1" d="M846 262 L822 266"/>
+            <g class="wheel" style="transform-origin:260px 302px"><circle cx="260" cy="302" r="50" class="tire"/><circle cx="260" cy="302" r="33" class="rim"/><path class="spokes-l" d="M260 302 L260 272 M260 302 L288 293 M260 302 L277 326 M260 302 L243 326 M260 302 L232 293"/></g>
+            <g class="wheel" style="transform-origin:700px 302px"><circle cx="700" cy="302" r="50" class="tire"/><circle cx="700" cy="302" r="33" class="rim"/><path class="spokes-l" d="M700 302 L700 272 M700 302 L728 293 M700 302 L717 326 M700 302 L683 326 M700 302 L672 293"/></g>
+          </g>
+          <g class="dim wb">
+            <line class="ext" x1="260" y1="302" x2="260" y2="96"/><line class="ext" x1="700" y1="302" x2="700" y2="96"/>
+            <line class="dl draw" x1="260" y1="96" x2="700" y2="96" pathLength="1"/>
+            <path class="tick" d="M260 88 V104 M700 88 V104"/>
+            <text x="480" y="82" text-anchor="middle" class="dt">WHEELBASE <tspan id="bpWb">114.2 in</tspan></text>
+          </g>
+          <g class="dim len">
+            <line class="ext" x1="98" y1="330" x2="98" y2="404"/><line class="ext" x1="856" y1="330" x2="856" y2="404"/>
+            <line class="dl draw" x1="98" y1="392" x2="856" y2="392" pathLength="1"/>
+            <path class="tick" d="M98 384 V400 M856 384 V400"/>
+            <text x="477" y="422" text-anchor="middle" class="dt">OVERALL LENGTH <tspan id="bpLen">195.7 in</tspan></text>
+          </g>
+        </svg>
+      </div>
+      <div class="spec-cells" id="specCells" data-reveal>
+        <div><small>Overall length</small><strong><span data-k="len">195.7</span><em>in</em></strong><span class="sub" data-k="lenmm">4,970 mm</span></div>
+        <div><small>Wheelbase</small><strong><span data-k="wb">114.2</span><em>in</em></strong><span class="sub">Concept target</span></div>
+        <div><small>Width</small><strong><span data-k="w">75.6</span><em>in</em></strong><span class="sub" data-k="wmm">1,921 mm</span></div>
+        <div><small data-k="hlk">Cabin targets</small><strong class="txt" data-k="hl">13-inch display<br>12.3-inch cluster</strong><span class="sub">Concept target</span></div>
+      </div>
+      <p class="fine">Dimensions are taken from the HAVEN design boards and remain unverified targets. The profile is a stylized drawing, not CAD.</p>
+    </div>
+  </section>
+
+  <!-- SUVs -->
+  <section class="suv" id="suv" aria-labelledby="suvTitle">
+    <div class="section-head">
+      <p class="kicker" data-reveal>05 — The SUV line</p>
+      <h2 id="suvTitle" data-reveal>Room for<br><span class="dim">everything.</span></h2>
+      <p class="lede" data-reveal>Two SUV concepts from the same philosophy: a practical Core and a flagship Reserve. Switch between them below.</p>
+    </div>
+    <div class="suv-wrap" id="suvWrap">
+      <div class="seg" role="tablist" aria-label="Choose SUV" id="suvTabs">
+        <button role="tab" class="on" data-suv="core" aria-selected="true">Core</button>
+        <button role="tab" data-suv="reserve" aria-selected="false">Reserve</button>
+      </div>
+      <div class="suv-grid">
+        <div class="suv-stage" data-reveal>
+          <span class="fig" id="suvFig">Fig. A — Core SUV · concept render</span>
+          <div class="hud-frame">
+            <img id="suvHero" src="assets/haven-suv/core/exterior-hero-clean.webp" alt="HAVEN Core SUV concept, front three-quarter view" width="560" height="283">
+            <div class="scan" aria-hidden="true"></div>
+            <i class="c tl"></i><i class="c tr"></i><i class="c bl"></i><i class="c br"></i>
+          </div>
+          <div class="views" aria-label="Exterior views">
+            <button type="button" data-view="front" data-full="assets/haven-suv/core/exterior-front.webp" data-caption="Core SUV · front view"><img src="assets/haven-suv/core/exterior-front.webp" alt="HAVEN Core SUV, front view" width="198" height="109"><span>Front</span></button>
+            <button type="button" data-view="side" data-full="assets/haven-suv/core/exterior-side.webp" data-caption="Core SUV · side view"><img src="assets/haven-suv/core/exterior-side.webp" alt="HAVEN Core SUV, side profile" width="345" height="109"><span>Side</span></button>
+            <button type="button" data-view="rear" data-full="assets/haven-suv/core/exterior-rear.webp" data-caption="Core SUV · rear view"><img src="assets/haven-suv/core/exterior-rear.webp" alt="HAVEN Core SUV, rear view" width="211" height="109"><span>Rear</span></button>
+          </div>
+        </div>
+        <div class="suv-copy" data-reveal style="--d:.1s">
+          <p class="kicker">Concept study</p>
+          <h3 id="suvName">HAVEN Core SUV</h3>
+          <p class="lede" id="suvLede">Everyday practicality, advanced safety thinking and technology you can live with. A family-minded SUV built on the same keep-it-for-life idea.</p>
+          <ul class="tags" id="suvTags"><li>Family-minded concept</li><li>Upgrade-ready by intent</li><li>Concept art crop</li></ul>
+          <div class="cabin" aria-label="Cabin views">
+            <button type="button" data-cabin="cockpit" data-full="assets/haven-suv/core/interior-cockpit.webp" data-caption="Core SUV · cockpit"><img src="assets/haven-suv/core/interior-cockpit.webp" alt="HAVEN Core SUV cockpit with wide display" width="416" height="150"><span>Cockpit</span></button>
+            <button type="button" data-cabin="second" data-full="assets/haven-suv/core/interior-second-row.webp" data-caption="Core SUV · second row"><img src="assets/haven-suv/core/interior-second-row.webp" alt="HAVEN Core SUV second-row seating" width="345" height="149"><span>Second row</span></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="feat-head" data-reveal><p class="kicker">Concept features</p><h3>Built around the people inside.</h3></div>
+      <div class="feat-grid">
+        <article class="feat" data-reveal><img src="assets/haven-suv/features/occupant-monitoring.webp" alt="Occupant monitoring concept" width="187" height="95" loading="lazy"><h4>Occupant monitoring</h4><p>Cabin sensing to support awareness of who is on board.</p></article>
+        <article class="feat" data-reveal style="--d:.05s"><img src="assets/haven-suv/features/rear-entertainment.webp" alt="Rear entertainment concept" width="189" height="95" loading="lazy"><h4>Rear entertainment</h4><p>Second-row screens for passengers on longer trips.</p></article>
+        <article class="feat" data-reveal style="--d:.1s"><img src="assets/haven-suv/features/hidden-cooler.webp" alt="Hidden cooler concept" width="179" height="95" loading="lazy"><h4>Hidden cooler</h4><p>Concealed cold storage built into the cabin.</p></article>
+        <article class="feat" data-reveal style="--d:.15s"><img src="assets/haven-suv/features/integrated-vacuum.webp" alt="Integrated vacuum concept" width="177" height="95" loading="lazy"><h4>Integrated vacuum</h4><p>Built-in cleanup for real family use.</p></article>
+        <article class="feat" data-reveal><img src="assets/haven-suv/features/smart-glass-roof.webp" alt="Smart glass roof concept" width="215" height="95" loading="lazy"><h4>Smart glass roof</h4><p>Panoramic roof with adjustable tint.</p></article>
+        <article class="feat" data-reveal style="--d:.05s"><img src="assets/haven-suv/features/guardian-security.webp" alt="Guardian security concept" width="164" height="95" loading="lazy"><h4>Guardian security</h4><p>Layered vehicle-security options.</p></article>
+        <article class="feat" data-reveal style="--d:.1s"><img src="assets/haven-suv/features/pilot-assist.webp" alt="Pilot assist concept" width="197" height="95" loading="lazy"><h4>Pilot assist</h4><p>A driver-assistance suite concept.</p></article>
+        <article class="feat" data-reveal style="--d:.15s"><img src="assets/haven-suv/features/safety-cell.webp" alt="Safety cell concept" width="200" height="95" loading="lazy"><h4>Safety cell</h4><p>A reinforced passenger-cell structure concept.</p></article>
+      </div>
+      <p class="fine center">SUV imagery is cropped from a concept comparison board and shown at modest size. Features are illustrative; crash protection, occupant-safety and security systems require independent engineering validation. Pricing is not shown.</p>
+    </div>
+  </section>
+
   <!-- OPENARCHITECTURE -->
   <section class="arch" id="architecture" aria-labelledby="archTitle">
     <div class="arch-copy">
-      <p class="kicker" data-reveal>04 — OpenArchitecture</p>
+      <p class="kicker" data-reveal>06 — OpenArchitecture</p>
       <h2 id="archTitle" data-reveal>Buy the car.<br><span class="dim">Not the expiration.</span></h2>
       <p class="lede" data-reveal>What if a car aged like a well-built computer? Keep the foundation. Upgrade what matters. Repair what's worn. Never throw away the whole machine for a better screen.</p>
       <div class="tabs" role="tablist" aria-label="Upgradeable systems" id="archTabs">
@@ -160,7 +310,7 @@
   <!-- INTERIOR HOTSPOTS -->
   <section class="interior" id="interior" aria-labelledby="intTitle">
     <div class="section-head">
-      <p class="kicker" data-reveal>05 — Technology that respects the driver</p>
+      <p class="kicker" data-reveal>07 — Technology that respects the driver</p>
       <h2 id="intTitle" data-reveal>Smart without<br><span class="dim">the gimmicks.</span></h2>
       <p class="lede" data-reveal>Front and rear recording cameras. Essential offline voice commands. Physical climate controls. A secure upgrade path for the screen and software you actually use.</p>
     </div>
@@ -179,10 +329,11 @@
   <section class="light" aria-labelledby="lightTitle">
     <div class="light-media" id="lightMedia"><img src="assets/p1-hero.webp" alt="" loading="lazy"></div>
     <div class="light-shade" aria-hidden="true"></div>
+    <div class="streaks" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
     <div class="light-copy">
-      <p class="kicker" data-reveal>06 — Signature</p>
+      <p class="kicker" data-reveal>08 — Signature</p>
       <h2 id="lightTitle" data-reveal>Light is the<br>signature.</h2>
-      <p class="lede" data-reveal>A shared lighting identity across both models, designed as modular, replaceable units.</p>
+      <p class="lede" data-reveal>A shared lighting identity across the lineup, designed as modular, replaceable units.</p>
     </div>
   </section>
 
@@ -190,7 +341,7 @@
   <section class="studio" id="studio" aria-labelledby="studioTitle">
     <div class="studio-pin" id="studioPin">
       <div class="studio-head">
-        <p class="kicker">07 — From the design studio</p>
+        <p class="kicker">09 — From the design studio</p>
         <h2 id="studioTitle">Form meets intent.</h2>
         <p class="fine">Exploratory drawings. Dimensions, hardware, safety, powertrain packaging and costs await engineering verification.</p>
       </div>
@@ -206,7 +357,7 @@
   <!-- CONFIGURATOR -->
   <section class="config" id="configure" aria-labelledby="cfgTitle">
     <div class="section-head center">
-      <p class="kicker" data-reveal>08 — Personalize your P1</p>
+      <p class="kicker" data-reveal>10 — Personalize your P1</p>
       <h2 id="cfgTitle" data-reveal>Make it <span class="dim">yours.</span></h2>
       <p class="lede" data-reveal>Start with an entire car. Change its character on your terms.</p>
     </div>
@@ -214,6 +365,7 @@
       <div class="config-stage" data-reveal>
         <div class="glow" aria-hidden="true"></div>
         <img id="configCar" src="assets/p1-hero.webp" alt="HAVEN P1 concept preview">
+        <i class="c tl"></i><i class="c tr"></i><i class="c bl"></i><i class="c br"></i>
         <span class="config-tag">Concept preview · colors are illustrative</span>
       </div>
       <div class="config-panel" data-reveal>
@@ -257,10 +409,12 @@
     </div>
   </section>
 
+  <div class="outline rev" data-slide aria-hidden="true"><span>BUILT TO EVOLVE&nbsp;&nbsp;BUILT TO EVOLVE&nbsp;&nbsp;BUILT TO EVOLVE</span></div>
+
   <!-- ROADMAP -->
   <section class="road" id="roadmap" aria-labelledby="roadTitle">
     <div class="section-head center">
-      <p class="kicker" data-reveal>09 — The journey</p>
+      <p class="kicker" data-reveal>11 — The journey</p>
       <h2 id="roadTitle" data-reveal>Big ambition.<br><span class="dim">Engineering discipline.</span></h2>
     </div>
     <ol class="timeline" id="timeline">
@@ -274,7 +428,7 @@
   <!-- PARTNERS -->
   <section class="collab" id="collaborate" aria-labelledby="collabTitle">
     <div class="section-head center">
-      <p class="kicker" data-reveal>10 — Build the next chapter</p>
+      <p class="kicker" data-reveal>12 — Build the next chapter</p>
       <h2 id="collabTitle" data-reveal>The future is<br><span class="dim">a partnership.</span></h2>
       <p class="lede" data-reveal>We are in concept and feasibility development, looking for thoughtful manufacturing, engineering and capital partners who believe a car should become more valuable to its owner over time.</p>
     </div>
@@ -305,7 +459,7 @@
   <div class="footer-meta"><span>© 2026 HAVEN / Concept Studio</span><span>Pre-production concept · all targets subject to change</span><a href="credits.html">Image credits &amp; disclosures</a><a href="#top">Back to top ↑</a></div>
 </footer>
 
-<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Expanded design drawing" aria-hidden="true">
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Expanded image" aria-hidden="true">
   <button id="lightboxClose" aria-label="Close expanded image">×</button>
   <img id="lightboxImage" alt="">
   <div id="lightboxCaption"></div>
