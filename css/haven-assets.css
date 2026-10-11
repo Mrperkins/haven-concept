@@ -1,0 +1,2 @@
+/* Separate photographic reference renders take precedence over the old pixel-tint canvas. */
+.config-stage.reference-mode canvas{display:none!important}.config-stage.reference-mode #configCar,.config-stage.reference-mode #configCar.hide{display:block!important;visibility:visible!important;opacity:1!important;position:relative!important;width:100%!important;height:100%!important;object-fit:contain!important;z-index:2!important}.config-stage.reference-mode .config-tag{z-index:3!important}
