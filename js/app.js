@@ -29,3 +29,16 @@
 
 // Cinematic motion, respecting reduced-motion and pointer capability.
 (()=>{const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;if(reduced)return;const hero=document.querySelector('.hero-media img');let scheduled=false;addEventListener('scroll',()=>{if(scheduled)return;scheduled=true;requestAnimationFrame(()=>{if(hero&&scrollY<innerHeight*1.5)hero.style.translate=`0 ${Math.min(scrollY*.09,90)}px`;scheduled=false})},{passive:true});document.querySelectorAll('.model-panel').forEach(panel=>{panel.addEventListener('pointermove',e=>{if(e.pointerType==='touch')return;const r=panel.getBoundingClientRect();panel.style.setProperty('--mx',((e.clientX-r.left)/r.width*100).toFixed(1)+'%');panel.style.setProperty('--my',((e.clientY-r.top)/r.height*100).toFixed(1)+'%')})})})();
+
+/* Photographic paint references cropped from the supplied HAVEN concept board.
+   These are fixed design-study images, not generated 3D or physical paint materials. */
+(()=>{'use strict';const holder=document.getElementById('photoVariants');const preview=document.getElementById('photoVariantPreview');if(!holder||!preview)return;
+const variants=[['obsidian','Black / Black'],['graphite','Black / Gold'],['black-red','Black / Red'],['red','Crimson / Black'],['white','White / Black'],['blue','Blue / Silver'],['green','Green / Bronze'],['bronze','Bronze / Black']];
+let chosen=1;const buttons=[];
+function select(i){chosen=i;preview.style.setProperty('--variant-index',String(i));buttons.forEach((b,j)=>b.setAttribute('aria-pressed',String(i===j)));preview.setAttribute('role','img');preview.setAttribute('aria-label','HAVEN concept render: '+variants[i][1]);}
+variants.forEach(([id,name],i)=>{const b=document.createElement('button');b.type='button';b.className='photo-variant';b.style.setProperty('--variant-index',String(i));b.setAttribute('aria-label','Show '+name+' design study');const label=document.createElement('span');label.textContent=name;b.append(label);b.addEventListener('click',()=>select(i));holder.append(b);buttons.push(b)});
+select(1);
+const colors={obsidian:0,graphite:1,red:3,white:4,blue:5,green:6,bronze:7,silver:4};
+document.querySelectorAll('.swatch').forEach(b=>b.addEventListener('click',()=>{const index=colors[b.dataset.color];if(index!==undefined)select(index)}));
+document.querySelectorAll('[data-accent]').forEach(b=>b.addEventListener('click',()=>{const a=b.dataset.accent;const selected=document.querySelector('.swatch.selected')?.dataset.color;if(a==='gold'&&['obsidian','graphite'].includes(selected))select(1);else if(a==='red'&&['obsidian','graphite'].includes(selected))select(2);else if(a==='black'&&['obsidian','graphite'].includes(selected))select(0)}));
+})();
