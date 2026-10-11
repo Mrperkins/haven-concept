@@ -1,0 +1,338 @@
+{
+  "project": "HAVEN concept SUV image crops",
+  "format": "webp",
+  "status": "concept art only, not production CAD",
+  "source_size_px": [
+    1536,
+    1024
+  ],
+  "source": "a_wide_high_detail_automotive_concept_infographic.png",
+  "assets": [
+    {
+      "file": "assets/haven-suv/core/exterior-hero.webp",
+      "category": "core",
+      "size_px": [
+        560,
+        283
+      ],
+      "source_crop_xyxy": [
+        74,
+        56,
+        634,
+        339
+      ],
+      "sha256": "4dab3da7250694008e3ebcfcab8ae272bd97c100d0283adf2e431148806a734c",
+      "source": "HAVEN Core and Reserve comparison sheet, 2026-10-11"
+    },
+    {
+      "file": "assets/haven-suv/reserve/exterior-hero.webp",
+      "category": "reserve",
+      "size_px": [
+        529,
+        292
+      ],
+      "source_crop_xyxy": [
+        901,
+        48,
+        1430,
+        340
+      ],
+      "sha256": "9932d0f5eaf6030bfc7d9ea78aa5f67396631ec24b3cfa95062c591e9d89fed8",
+      "source": "HAVEN Core and Reserve comparison sheet, 2026-10-11"
+    },
+    {
+      "file": "assets/haven-suv/core/exterior-front.webp",
+      "category": "core",
+      "size_px": [
+        198,
+        109
+      ],
+      "source_crop_xyxy": [
+        2,
+        345,
+        200,
+        454
+      ],
+      "sha256": "f97973c21660e1d29a48ad079c9199b31574acdfc820ec694ef199517b33f1e5",
+      "source": "HAVEN Core and Reserve comparison sheet, 2026-10-11"
+    },
+    {
+      "file": "assets/haven-suv/core/exterior-side.webp",
+      "category": "core",
+      "size_px": [
+        345,
+        109
+      ],
+      "source_crop_xyxy": [
+        205,
+        345,
+        550,
+        454
+      ],
+      "sha256": "812a3acad195cb643a09cd92c61da42d245c4f13319fee675467e33dd4ce7016",
+      "source": "HAVEN Core and Reserve comparison sheet, 2026-10-11"
+    },
+    {
+      "file": "assets/haven-suv/core/exterior-rear.webp",
+      "category": "core",
+      "size_px": [
+        211,
+        109
+      ],
+      "source_crop_xyxy": [
+        555,
+        345,
+        766,
+        454
+      ],
+      "sha256": "b6038f0a29937884231e44cd75ee3ff9d1cf04c02f9bcc47d4e9dfc17be40a5f",
+      "source": "HAVEN Core and Reserve comparison sheet, 2026-10-11"
+    },
+    {
+      "file": "assets/haven-suv/reserve/exterior-front.webp",
+      "category": "reserve",
+      "size_px": [
+        201,
+        109
+      ],
+      "source_crop_xyxy": [
+        770,
+        345,
+        971,
+        454
+      ],
+      "sha256": "e2de0b74a54ea5d9fab4d58a3a8e6516c06ea0e9c38d85206e703b7188d3dd02",
+      "source": "HAVEN Core and Reserve comparison sheet, 2026-10-11"
+    },
+    {
+      "file": "assets/haven-suv/reserve/exterior-side.webp",
+      "category": "reserve",
+      "size_px": [
+        355,
+        109
+      ],
+      "source_crop_xyxy": [
+        975,
+        345,
+        1330,
+        454
+      ],
+      "sha256": "8f1a44c747204158c4ce8a3b4012f101f4139009f1c3710f4e7a7a461600f895",
+      "source": "HAVEN Core and Reserve comparison sheet, 2026-10-11"
+    },
+    {
+      "file": "assets/haven-suv/reserve/exterior-rear.webp",
+      "category": "reserve",
+      "size_px": [
+        199,
+        109
+      ],
+      "source_crop_xyxy": [
+        1335,
+        345,
+        1534,
+        454
+      ],
+      "sha256": "03f7a66ba60068880e40216ccbbc6c66b2c497ef248aade3c19cd01d00a887b3",
+      "source": "HAVEN Core and Reserve comparison sheet, 2026-10-11"
+    },
+    {
+      "file": "assets/haven-suv/core/interior-cockpit.webp",
+      "category": "core",
+      "size_px": [
+        416,
+        150
+      ],
+      "source_crop_xyxy": [
+        2,
+        476,
+        418,
+        626
+      ],
+      "sha256": "da0123a2f72bd4fdeef25182d55c65f252145f1e609fbb231d692e780f07b213",
+      "source": "HAVEN Core and Reserve comparison sheet, 2026-10-11"
+    },
+    {
+      "file": "assets/haven-suv/core/interior-second-row.webp",
+      "category": "core",
+      "size_px": [
+        345,
+        149
+      ],
+      "source_crop_xyxy": [
+        423,
+        476,
+        768,
+        625
+      ],
+      "sha256": "0ea3b12fa32a0c135c65048d73cfa08c740787d1d06374447d9b09b0391802e7",
+      "source": "HAVEN Core and Reserve comparison sheet, 2026-10-11"
+    },
+    {
+      "file": "assets/haven-suv/reserve/interior-cockpit.webp",
+      "category": "reserve",
+      "size_px": [
+        365,
+        151
+      ],
+      "source_crop_xyxy": [
+        772,
+        476,
+        1137,
+        627
+      ],
+      "sha256": "e9763a37aab89068919de9708d129857f70c155b76ab33f2d3bacf78eba4cbb8",
+      "source": "HAVEN Core and Reserve comparison sheet, 2026-10-11"
+    },
+    {
+      "file": "assets/haven-suv/reserve/interior-second-row.webp",
+      "category": "reserve",
+      "size_px": [
+        394,
+        150
+      ],
+      "source_crop_xyxy": [
+        1141,
+        476,
+        1535,
+        626
+      ],
+      "sha256": "5ba143b5f7fdf6721bc31c4dfc26e453803b579e0d0f35def438caed2a7ae5f1",
+      "source": "HAVEN Core and Reserve comparison sheet, 2026-10-11"
+    },
+    {
+      "file": "assets/haven-suv/features/occupant-monitoring.webp",
+      "category": "features",
+      "size_px": [
+        187,
+        95
+      ],
+      "source_crop_xyxy": [
+        2,
+        649,
+        189,
+        744
+      ],
+      "sha256": "e6b4d4e7fff0f4efcc220b4f332bc8b40425380f42893ef925735f305acf4a16",
+      "source": "HAVEN Core and Reserve comparison sheet, 2026-10-11"
+    },
+    {
+      "file": "assets/haven-suv/features/rear-entertainment.webp",
+      "category": "features",
+      "size_px": [
+        189,
+        95
+      ],
+      "source_crop_xyxy": [
+        192,
+        649,
+        381,
+        744
+      ],
+      "sha256": "42a2aa4022671ea92cf0acc3221a648a01fad91b651554abfbd974b32ccd1f78",
+      "source": "HAVEN Core and Reserve comparison sheet, 2026-10-11"
+    },
+    {
+      "file": "assets/haven-suv/features/hidden-cooler.webp",
+      "category": "features",
+      "size_px": [
+        179,
+        95
+      ],
+      "source_crop_xyxy": [
+        384,
+        649,
+        563,
+        744
+      ],
+      "sha256": "ad5eca03ae38ecd14573bed869358f5c3ff66941eb332fed9628fe755b2b8ac9",
+      "source": "HAVEN Core and Reserve comparison sheet, 2026-10-11"
+    },
+    {
+      "file": "assets/haven-suv/features/integrated-vacuum.webp",
+      "category": "features",
+      "size_px": [
+        177,
+        95
+      ],
+      "source_crop_xyxy": [
+        566,
+        649,
+        743,
+        744
+      ],
+      "sha256": "6754c4fa18219238c645f66cd4bf2679169de97cbb29c97da36d4d69e47739e1",
+      "source": "HAVEN Core and Reserve comparison sheet, 2026-10-11"
+    },
+    {
+      "file": "assets/haven-suv/features/smart-glass-roof.webp",
+      "category": "features",
+      "size_px": [
+        215,
+        95
+      ],
+      "source_crop_xyxy": [
+        747,
+        649,
+        962,
+        744
+      ],
+      "sha256": "4349ec226249b10eddceeba340df2e0cc3fda3ee4d17665fc29e30f199fc11bb",
+      "source": "HAVEN Core and Reserve comparison sheet, 2026-10-11"
+    },
+    {
+      "file": "assets/haven-suv/features/guardian-security.webp",
+      "category": "features",
+      "size_px": [
+        164,
+        95
+      ],
+      "source_crop_xyxy": [
+        965,
+        649,
+        1129,
+        744
+      ],
+      "sha256": "0a97ea4541bf46452324c0d3d167a0c741c5c59118e59d88159f10641d011c51",
+      "source": "HAVEN Core and Reserve comparison sheet, 2026-10-11"
+    },
+    {
+      "file": "assets/haven-suv/features/pilot-assist.webp",
+      "category": "features",
+      "size_px": [
+        197,
+        95
+      ],
+      "source_crop_xyxy": [
+        1134,
+        649,
+        1331,
+        744
+      ],
+      "sha256": "5876690a2121a8540fc0256f8d6c13e15ddef954556c7f5ca91634c5a2f1771d",
+      "source": "HAVEN Core and Reserve comparison sheet, 2026-10-11"
+    },
+    {
+      "file": "assets/haven-suv/features/safety-cell.webp",
+      "category": "features",
+      "size_px": [
+        200,
+        95
+      ],
+      "source_crop_xyxy": [
+        1335,
+        649,
+        1535,
+        744
+      ],
+      "sha256": "084e1e93fb1e6b03fcf00f8e774927cc3a0998bd3b14b30147b0935d8eef700f",
+      "source": "HAVEN Core and Reserve comparison sheet, 2026-10-11"
+    }
+  ],
+  "important_notes": [
+    "Crops are extracted from an AI-generated composite; do not treat different angles as geometrically consistent turnarounds.",
+    "Some exterior hero crops may retain source-composite lettering.",
+    "Current source feature crops are small; use them as thumbnails, not full-screen hero backgrounds.",
+    "No real-world safety performance, armoring, driver automation, or production pricing is substantiated by the images."
+  ]
+}
