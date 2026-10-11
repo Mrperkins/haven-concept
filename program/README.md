@@ -75,6 +75,8 @@ The targets are planning gates, not statistical proof of demand. A partner decli
 - [Partner shortlist and nonconfidential RFI](PARTNERS_RFI.md)
 - [Customer discovery guide](CUSTOMER_DISCOVERY.md)
 - [Open decisions and evidentiary status](DECISION_LOG.md)
+- [Verified 2026 safety and price competitors](BENCHMARKS.md)
+- [Live Phase 0 issue tracker](https://github.com/Mrperkins/haven-concept/issues)
 - **Private financial model:** HAVEN_Feasibility_Unit_Economics.xlsx is distributed separately; do not assume its placeholder estimates are vendor data.
 
 ## Compliance baseline (public sources)
