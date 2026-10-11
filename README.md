@@ -8,11 +8,15 @@ An independent concept studio for two proposed cars: the P1 Core and P1R Founder
 
 ## Functionality
 
-- Responsive cinematic vehicle showcase; accessible menu and skip navigation
-- Interactive P1 concept configurator with editable trim and upgrade pricing, saves selections locally
-- Lightbox gallery with concept art, alternate boards and engineering imagery
-- Local downloadable PDF and PowerPoint investor and manufacturing pitch decks
-- Motion respects reduced-motion preference; no reservations or payments accepted
+- Cinematic, scroll-driven showcase: animated hero with light sweep and drifting dust, scroll-linked manifesto text, stacking full-screen vehicle panels with count-up specs
+- Animated OpenArchitecture diagram (rotating orbits, drawn spokes) with keyboard-accessible tabs
+- Interactive cabin hotspots over the P1 interior render
+- Pinned horizontal-scroll design-studio gallery with lightbox (native swipe scroll on mobile)
+- P1 configurator: live exterior paint recolor, accent-light glow, priced upgrades, saved locally, copy-build
+- Scroll-drawn roadmap timeline; PDF and PowerPoint investor and manufacturing decks
+- Respects `prefers-reduced-motion`; no reservations or payments accepted
+
+Files: `index.html`, `css/site.css`, `js/site.js` (no build step, no dependencies besides the Inter web font).
 
 ## Deploy
 
