@@ -32,3 +32,7 @@ HAVEN is exploratory. Pricing and performance numbers are targets, not offers. V
 ## Publishing QA
 
 Run `node scripts/validate-site.mjs`, verify Pages workflow, then test browser presentation on desktop/tablet/mobile and inspect the interactive configurator. The repository's first version used SVG placeholders; v2 upgrades to original HAVEN concept renders and PDF/PPTX decks.
+
+## HAVEN vehicle commercialization program
+
+The first 90 days of Core and Reserve SUV feasibility work are documented under [`program/`](program/README.md). The public-facing program overview lives at [`program/`](program/index.html). The product specification, regulatory risk register, partner RFI, customer discovery plan and decision log are **working hypotheses**, not validated automotive claims or supplier quotations. 
