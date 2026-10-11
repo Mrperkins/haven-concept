@@ -286,6 +286,9 @@ function notify(msg) {
   clearTimeout(toastT); toastT = setTimeout(() => toast.classList.remove('on'), 3000);
 }
 
+/* lazy images inside sticky / transformed layers can stay blank on iOS Safari; the page is ~3 MB, so load them eagerly */
+$$('img[loading="lazy"]').forEach(i => { i.loading = 'eager'; });
+
 /* ---------- configurator ---------- */
 (() => {
   const car = $('#configCar');
@@ -350,13 +353,17 @@ function notify(msg) {
   src.decoding = 'async';
   src.onload = () => {
     try {
-      canvas.width = src.naturalWidth; canvas.height = src.naturalHeight;
+      const sc = Math.min(1, 1200 / src.naturalWidth);
+      canvas.width = Math.round(src.naturalWidth * sc); canvas.height = Math.round(src.naturalHeight * sc);
       ctx = canvas.getContext('2d', { willReadFrequently: true });
-      ctx.drawImage(src, 0, 0);
+      ctx.drawImage(src, 0, 0, canvas.width, canvas.height);
       base = ctx.getImageData(0, 0, canvas.width, canvas.height);
+      // if the browser handed back an empty bitmap, keep the plain image
+      let seen = 0; for (let i = 3; i < base.data.length && seen < 50; i += 4000) if (base.data[i] > 0) seen++;
+      if (!seen) throw new Error('blank canvas');
       build(base.data, canvas.width, canvas.height);
-      ready = true; car.classList.add('hide'); paint();
-    } catch (e) { canvas.hidden = true; car.classList.remove('hide'); }
+      ready = true; paint();
+    } catch (e) { canvas.hidden = true; ready = false; }
   };
   src.onerror = () => { canvas.hidden = true; };
   src.src = car.getAttribute('src');
