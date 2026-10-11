@@ -78,3 +78,25 @@
 .button:active,.nav-cta:active,#copyBuild:active{transform:translateY(0)}
 :where(.button,.nav-cta,#copyBuild,.menu-toggle):focus-visible{outline:2px solid #fff!important;outline-offset:4px!important}
 @media(prefers-reduced-motion:reduce){.button,.nav-cta,#copyBuild,.menu-toggle{transition:none!important}.button:hover,.nav-cta:hover,#copyBuild:hover{transform:none!important}}
+
+/* HAVEN 2026 cinematic visual direction */
+:root{--haven-reference:url("https://gcdn.picsart.com/editing-temp/0d1c47a1-2a83-41f3-987e-7209b7835e57.jpeg")}
+.hero{background:#080a0d;min-height:740px}
+.hero-media{overflow:hidden}
+.hero-media img{width:100%;height:100%;object-fit:cover!important;object-position:72% 6%!important;filter:brightness(.72) saturate(.9);animation:haven-hero-in 1.6s ease-out both}
+.hero-shade{background:linear-gradient(90deg,#080a0df5 0%,#080a0dca 30%,#080a0d15 78%),linear-gradient(0deg,#080a0df2 0%,transparent 35%,#080a0d66 100%)!important}
+@keyframes haven-hero-in{from{opacity:.25;transform:scale(1.07)}to{opacity:1;transform:scale(1)}}
+.hero-content{z-index:4}.hero h1{letter-spacing:.08em}
+.photo-variants{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;margin:18px 0 22px}
+.photo-variant{position:relative;aspect-ratio:1.7;min-width:0;overflow:hidden;border:1px solid #ffffff44;border-radius:5px;background-color:#0a0b0d;background-image:var(--haven-reference);background-repeat:no-repeat;background-size:800% auto;background-position-x:calc(var(--variant-index) * 100% / 7);background-position-y:66.5%;cursor:pointer;color:#fff;transition:transform .25s,border-color .25s}
+.photo-variant:hover{transform:translateY(-3px);border-color:#fff9}
+.photo-variant[aria-pressed=true]{border:2px solid #fff}
+.photo-variant:focus-visible{outline:2px solid #fff;outline-offset:3px}
+.photo-variant span{position:absolute;inset:auto 0 0;padding:18px 5px 5px;text-align:center;background:linear-gradient(transparent,#000d);font-size:9px;font-weight:700;letter-spacing:.06em;text-shadow:0 1px 4px #000}
+.photo-variant-preview{position:absolute;inset:0;z-index:2;background-color:#0b0d10;background-image:var(--haven-reference);background-repeat:no-repeat;background-size:800% auto;background-position-x:calc(var(--variant-index,1) * 100% / 7);background-position-y:66.5%;transition:opacity .3s}
+.config-photo:has(.photo-variant-preview) #configCar,.config-photo:has(.photo-variant-preview) .paint-canvas{visibility:hidden!important}
+.config-photo .config-tag{z-index:5}
+.button,.nav-cta,#copyBuild{background:rgba(4,5,7,.7)!important;color:#fff!important;border:1px solid #ffffff65!important;border-radius:12px!important;backdrop-filter:blur(18px)!important;-webkit-backdrop-filter:blur(18px)!important}
+.button:hover,.nav-cta:hover,#copyBuild:hover{background:rgba(15,17,20,.92)!important;color:#fff!important;border-color:#fff!important}
+@media(max-width:750px){.hero-media img{object-position:68% 0%!important}.photo-variants{grid-template-columns:repeat(2,minmax(0,1fr))}.hero-shade{background:linear-gradient(0deg,#080a0dfc 0%,#080a0d88 50%,#080a0d2e 100%)!important}}
+@media(prefers-reduced-motion:reduce){.hero-media img{animation:none!important}.photo-variant{transition:none!important}}
