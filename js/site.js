@@ -491,8 +491,10 @@ if (fine && !reduced) {
   let key = 'p1', raf = 0;
   const paint = () => {
     ['len', 'wb', 'w'].forEach(k => { q(k).textContent = cur[k].toFixed(1); });
-    $('#bpLen').textContent = cur.len.toFixed(1) + ' in';
-    $('#bpWb').textContent = cur.wb.toFixed(1) + ' in';
+    const L = $('#bpLen'), W = $('#bpWb'), X = $('#bpWid');
+    if (L) L.textContent = cur.len.toFixed(1) + ' in';
+    if (W) W.textContent = cur.wb.toFixed(1) + ' in';
+    if (X) X.textContent = cur.w.toFixed(1) + ' in';
   };
   function go(k0) {
     key = k0;
@@ -511,7 +513,33 @@ if (fine && !reduced) {
     paint();
     new IntersectionObserver((es, io) => { if (es[0].isIntersecting) { io.disconnect(); go(key); } }, { threshold: .35 }).observe(bp);
   }
-  seg(tabs, 'spec', k => { if (reduced) { Object.assign(cur, { len: D[k].len, wb: D[k].wb, w: D[k].w }); q('lenmm').textContent = D[k].lenmm; q('wmm').textContent = D[k].wmm; q('hlk').textContent = D[k].hlk; q('hl').innerHTML = D[k].hl; paint(); } else go(k); });
+  /* view switcher: uses the design-board scenes (front / side / rear / cutaway) */
+  const stage = $('#bpStage'), img = $('#bpImg'), cap = $('#bpCap'), botL = $('#bpBotL');
+  const NAMES = { p1: 'P1 Core', p1r: 'P1R Founder\u2019s' };
+  const VN = { side: 'side elevation', front: 'front elevation', rear: 'rear elevation', section: 'cutaway' };
+  const DIMS = { // wheel-centre positions and body span measured on each crop (% of image width)
+    p1: { l: 17, w: 62 }, p1r: { l: 17, w: 61.5 }
+  };
+  let view = 'side', model = 'p1';
+  function show() {
+    const nm = NAMES[model];
+    stage.classList.add('swap');
+    setTimeout(() => {
+      img.src = `assets/haven-views/${model}-${view}.webp`;
+      img.alt = `HAVEN ${nm} ${VN[view]}`;
+      stage.dataset.view = view;
+      const d = DIMS[model];
+      stage.style.setProperty('--wl', d.l + '%'); stage.style.setProperty('--ww', d.w + '%');
+      botL.innerHTML = view === 'side' ? 'OVERALL LENGTH <b id="bpLen"></b>' : 'OVERALL WIDTH <b id="bpWid"></b>';
+      cap.textContent = nm + ' \u00b7 ' + VN[view] + (view === 'section' ? ' \u2014 illustrative packaging, not engineering validated' : ' \u2014 concept render; dimensions are unverified targets');
+      paint();
+      stage.classList.remove('swap');
+      stage.classList.remove('drawn'); void stage.offsetWidth; stage.classList.add('drawn');
+    }, reduced ? 0 : 220);
+  }
+  seg($('#bpViews'), 'bpv', k => { view = k; show(); });
+  stage.classList.add('drawn');
+  seg(tabs, 'spec', k => { model = k; show(); if (reduced) { Object.assign(cur, { len: D[k].len, wb: D[k].wb, w: D[k].w }); q('lenmm').textContent = D[k].lenmm; q('wmm').textContent = D[k].wmm; q('hlk').textContent = D[k].hlk; q('hl').innerHTML = D[k].hl; paint(); } else go(k); });
 })();
 
 /* ---------- SUV switcher ---------- */

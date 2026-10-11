@@ -15,7 +15,7 @@ An independent concept studio for two proposed cars: the P1 Core and P1R Founder
 - P1 configurator: live exterior paint recolor, accent-light glow, priced upgrades, saved locally, copy-build
 - Scroll-drawn roadmap timeline; PDF and PowerPoint investor and manufacturing decks
 - SpaceX/Tesla-style tech layer: boot sequence, HUD corner brackets with mission clock and telemetry ticker, side section rail, outlined parallax type, cursor ring, film grain
-- Animated blueprint: sedan profile draws itself with spinning wheels, scan line and counting dimensions (P1 / P1R)
+- Dimension viewer: P1 / P1R side, front, rear and cutaway views cropped from the design-board renders (`assets/haven-views/`), with a sweep reveal and counting dimension lines
 - SUV lineup (Core / Reserve) with front/side/rear and cabin views, framed in HUD cards. Source crops are low-res, so shown small; board text was inpainted from the two hero crops as `*-clean.webp` copies
 - Respects `prefers-reduced-motion`; no reservations or payments accepted
 

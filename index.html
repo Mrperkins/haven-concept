@@ -177,36 +177,21 @@
         <button role="tab" data-spec="p1r" aria-selected="false">P1R Founder's</button>
       </div>
       <div class="bp" id="bp" data-reveal>
-        <svg viewBox="0 40 960 400" role="img" aria-label="Stylized side profile of a HAVEN sedan with its overall length and wheelbase dimensioned" id="bpSvg">
-          <defs>
-            <pattern id="bpGrid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" class="grid-l"/></pattern>
-            <linearGradient id="bpScan" x1="0" x2="1"><stop offset="0" stop-color="#8fd3ff" stop-opacity="0"/><stop offset=".5" stop-color="#8fd3ff" stop-opacity=".35"/><stop offset="1" stop-color="#8fd3ff" stop-opacity="0"/></linearGradient>
-          </defs>
-          <rect x="0" y="40" width="960" height="400" fill="url(#bpGrid)"/>
-          <rect class="bp-scan" x="0" y="40" width="140" height="400" fill="url(#bpScan)"/>
-          <line class="ground draw" x1="40" y1="352" x2="920" y2="352" pathLength="1"/>
-          <g class="car">
-            <path class="body draw" pathLength="1" d="M104 326 L98 286 C98 266 106 256 122 252 L292 222 C332 190 394 160 466 154 C562 146 656 158 734 210 L810 230 C840 238 854 254 856 284 L852 326 L755 326 A60 60 0 1 0 645 326 L315 326 A60 60 0 1 0 205 326 L104 326 Z"/>
-            <path class="glass draw" pathLength="1" d="M318 224 C350 196 400 176 466 170 C548 164 626 176 696 218 Z"/>
-            <path class="detail draw" pathLength="1" d="M126 268 L848 264"/>
-            <path class="light-l draw" pathLength="1" d="M108 262 L158 256"/>
-            <path class="light-l draw" pathLength="1" d="M846 262 L822 266"/>
-            <g class="wheel" style="transform-origin:260px 302px"><circle cx="260" cy="302" r="50" class="tire"/><circle cx="260" cy="302" r="33" class="rim"/><path class="spokes-l" d="M260 302 L260 272 M260 302 L288 293 M260 302 L277 326 M260 302 L243 326 M260 302 L232 293"/></g>
-            <g class="wheel" style="transform-origin:700px 302px"><circle cx="700" cy="302" r="50" class="tire"/><circle cx="700" cy="302" r="33" class="rim"/><path class="spokes-l" d="M700 302 L700 272 M700 302 L728 293 M700 302 L717 326 M700 302 L683 326 M700 302 L672 293"/></g>
-          </g>
-          <g class="dim wb">
-            <line class="ext" x1="260" y1="302" x2="260" y2="96"/><line class="ext" x1="700" y1="302" x2="700" y2="96"/>
-            <line class="dl draw" x1="260" y1="96" x2="700" y2="96" pathLength="1"/>
-            <path class="tick" d="M260 88 V104 M700 88 V104"/>
-            <text x="480" y="82" text-anchor="middle" class="dt">WHEELBASE <tspan id="bpWb">114.2 in</tspan></text>
-          </g>
-          <g class="dim len">
-            <line class="ext" x1="98" y1="330" x2="98" y2="404"/><line class="ext" x1="856" y1="330" x2="856" y2="404"/>
-            <line class="dl draw" x1="98" y1="392" x2="856" y2="392" pathLength="1"/>
-            <path class="tick" d="M98 384 V400 M856 384 V400"/>
-            <text x="477" y="422" text-anchor="middle" class="dt">OVERALL LENGTH <tspan id="bpLen">195.7 in</tspan></text>
-          </g>
-        </svg>
+        <div class="bp-views" id="bpViews" role="tablist" aria-label="Choose view">
+          <button role="tab" class="on" data-bpv="side" aria-selected="true">Side</button>
+          <button role="tab" data-bpv="front" aria-selected="false">Front</button>
+          <button role="tab" data-bpv="rear" aria-selected="false">Rear</button>
+          <button role="tab" data-bpv="section" aria-selected="false">Cutaway</button>
+        </div>
+        <figure class="bp-stage" id="bpStage" data-view="side">
+          <div class="bp-img" id="bpImgBox">
+            <img id="bpImg" src="assets/haven-views/p1-side.webp" alt="HAVEN P1 Core side elevation">
+            <div class="bpd top"><i></i><span>WHEELBASE <b id="bpWb">114.2 in</b></span></div>
+            <div class="bpd bot"><i></i><span id="bpBotL">OVERALL LENGTH <b id="bpLen">195.7 in</b></span></div>
+            <div class="bp-line"></div>
+          </div>
+        </figure>
+        <p class="bp-cap" id="bpCap">P1 Core · side elevation — concept render, dimensions are unverified targets</p>
       </div>
       <div class="spec-cells" id="specCells" data-reveal>
         <div><small>Overall length</small><strong><span data-k="len">195.7</span><em>in</em></strong><span class="sub" data-k="lenmm">4,970 mm</span></div>
@@ -214,7 +199,7 @@
         <div><small>Width</small><strong><span data-k="w">75.6</span><em>in</em></strong><span class="sub" data-k="wmm">1,921 mm</span></div>
         <div><small data-k="hlk">Cabin targets</small><strong class="txt" data-k="hl">13-inch display<br>12.3-inch cluster</strong><span class="sub">Concept target</span></div>
       </div>
-      <p class="fine">Dimensions are taken from the HAVEN design boards and remain unverified targets. The profile is a stylized drawing, not CAD.</p>
+      <p class="fine">Dimensions are taken from the HAVEN design boards and remain unverified targets. Views are crops of the HAVEN design-board renders, not CAD.</p>
     </div>
   </section>
 
