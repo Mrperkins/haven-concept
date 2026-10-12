@@ -63,6 +63,17 @@ A roof ring, pillars, side sills and transverse load paths incorporated into ori
 
 No higher trim may paywall basic crash protection or child-presence detection. Careful protection design may require whole-vehicle configurations instead of arbitrary plug-and-play armor.
 
+## Utility, towing, intelligence and vehicle protection expansion (2026-10-11)
+
+See [**Capability Program — engineering gates and variant feature matrix**](CAPABILITY_REQUIREMENTS.md). New proposed capability targets, none validated:
+
+- **Core:** 5,000 lb maximum trailer towing with an optional tow package; hitch camera, trailer sway and brake controller provision; supervised parking assist as a cost-gated option; proximity/gesture liftgate option; offline-first natural-language vehicle controls; consent-based GNSS theft locator; practical spare or approved tire mobility solution.
+- **Reserve:** 8,500 lb maximum trailer towing with heavy-duty tow package; payload target ≥2,000–2,300 lb subject to configuration and tongue load; water-fording target 24–30 inches in controlled still water only if engineered; optional rear-wheel steering and slow diagonal maneuvering; supervised automated parking and future *supervised* private-property fetching; optional gesture power doors, secure backup tracking and full-size spare.
+- **Core water goal:** 16–20 inches still water only if validated. **Neither vehicle is designed or advertised to drive through flooded roads.**
+- **Tire policy:** no "never-flat" claims. Self-sealing/run-flat technologies have limitations and the driver needs a usable recovery solution.
+- **No autonomy overclaim:** hands-free L2 remains driver supervised; remote fetching is a different, later, geofenced and supervised operation.
+- **Conflict management:** towing, armored glass, wading, wheel steering and payload must be validated as compatible vehicle-level configurations; don't assume every option can be combined.
+
 ## Configurability rules
 
 - Cosmetic modularity: body wraps/trim/nonstructural skins, tested mounting points, electronic infotainment modules behind cybersecurity isolation.

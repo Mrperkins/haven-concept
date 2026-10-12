@@ -22,6 +22,16 @@ Last updated: 2026-10-11. **Unknown** means not measured, not a claim of failure
 | D-016 | Working prototype | NOT BUILT | Funded scoped build and proper private test location |
 | D-017 | FMVSS/IIHS/Euro NCAP crash results | NOT TESTED | Independent test reports |
 | D-018 | Manufacturing & service plan | NOT BUILT | Partner economics and warranty response system |
+| D-019 | Core 5,000 lb tow rating | UNVERIFIED STRETCH TARGET | Licensed platform, hitch/GCWR/GAWR and SAE J2807-type validation |
+| D-020 | Reserve 8,500 lb tow rating | UNVERIFIED STRETCH TARGET | Full passenger and boat/trailer payload analysis, brakes, cooling |
+| D-021 | Controlled still-water fording | HIGH-RISK TEST TARGET | Core 16–20 in / Reserve 24–30 in; seals, HV, traction; not flood driving |
+| D-022 | Reserve 4-wheel steer / diagonal maneuver | PREMIUM RESEARCH | Supplier, compatibility and functional safety case |
+| D-023 | Park assist / supervised fetching | CONDITIONAL / FUTURE | ADAS rights, geofenced ODD, constant human monitoring and disable cases |
+| D-024 | Gesture opening | CONDITIONAL OPTION | Anti-pinch, collision avoidance, manual egress, false triggers |
+| D-025 | Offline-first conversational vehicle AI | REQUIREMENT PROPOSAL | Safety boundary, secure OTA, cost/licensing and privacy |
+| D-026 | Guardian Locate and theft recovery | REQUIREMENT PROPOSAL | GNSS/cellular, backup power, MFA, stalking-prevention and insurance/legal review |
+| D-027 | Spare tire / puncture-resistant mobility | REQUIREMENT PROPOSAL | Tire load rating, underfloor packaging, valid recovery performance |
+| D-028 | Compatible Tow/Adventure/Armor option combinations | OPEN HARD CONSTRAINT | GVWR/GCWR/GAWR, controls, rear suspension and brake testing |
 
 ## Confirmed work product (not production proof)
 
