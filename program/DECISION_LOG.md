@@ -32,6 +32,12 @@ Last updated: 2026-10-11. **Unknown** means not measured, not a claim of failure
 | D-026 | Guardian Locate and theft recovery | REQUIREMENT PROPOSAL | GNSS/cellular, backup power, MFA, stalking-prevention and insurance/legal review |
 | D-027 | Spare tire / puncture-resistant mobility | REQUIREMENT PROPOSAL | Tire load rating, underfloor packaging, valid recovery performance |
 | D-028 | Compatible Tow/Adventure/Armor option combinations | OPEN HARD CONSTRAINT | GVWR/GCWR/GAWR, controls, rear suspension and brake testing |
+| D-029 | China competitive technical benchmark | RESEARCHED / LIVE TRACKING | Variant-by-variant OEM sources and independent user tests |
+| D-030 | US BIS-connected vehicle supply chain compliance | CRITICAL OPEN GATE | 15 CFR 791 / supplier-specific legal evaluation before sourcing |
+| D-031 | Core multi-zone offline voice + vision-based comfort | HIGH-PRIORITY TARGET | HMI task testing, sensor fusion safety and supplier BOM |
+| D-032 | China-feature package price parity | UNVERIFIED GOAL | US market landed cost and 35–40k Core MSRP supplier model |
+| D-033 | Core / Reserve quality advantage | LONG-TERM METRIC | 2–5-year in-market dependability, recall, service / uptime tracking |
+| D-034 | Chinese vehicle platform adoption for US HAVEN | NOT AUTHORIZED | Legal licensing + BIS restrictions; do not assume feasible |
 
 ## Confirmed work product (not production proof)
 

@@ -74,6 +74,15 @@ See [**Capability Program — engineering gates and variant feature matrix**](CA
 - **No autonomy overclaim:** hands-free L2 remains driver supervised; remote fetching is a different, later, geofenced and supervised operation.
 - **Conflict management:** towing, armored glass, wading, wheel steering and payload must be validated as compatible vehicle-level configurations; don't assume every option can be combined.
 
+## China technology/value baseline — new strategic requirement (2026-10-11)
+
+See [HAVEN China Competitive Benchmark](CHINA_COMPETITIVE_BENCHMARK.md). Chinese family SUVs already market or ship rear cabin entertainment, sophisticated voice interaction, child-behavior detection, intelligent climate, refrigerators, gesture doors, intelligent parking and advanced electronic chassis control. HAVEN must **measure against the trim actually delivering each feature** instead of comparing entry prices with fully loaded options.
+
+- **Core baseline:** all fundamental safety, direct child-presence sensing with independent fallback, protected car-seat geometry, conventional manual emergency controls, a capable privacy-preserving offline voice assistant for cabin functions and navigation, and serviceable interior/electronics design. Cost-gated options: integrated rear entertainment, intelligent 360 parking, cooled storage and assisted parking. Safety is never subscription-gated.
+- **Reserve premium:** all Core priorities with an upgraded family cabin, expanded voice zones, available rear-wheel steering / diagonal movement, intelligent suspension and supported monitored Level 2 assistance; specialty glazing/armor separately validated as whole-vehicle configurations. A 6/7-zone climate system and powered doors are price- and hazard-analysis targets only.
+- **Win condition:** family/child occupant protection backed by independent testing, excellent uptime/repairability, and meaningful features at target U.S. price. No manufacturer exists yet and no HAVEN technical or crash superiority has been established.
+- **Regulatory gate:** compliance review for the 2025 U.S. BIS connected-vehicle rule prior to sourcing Chinese-origin vehicle connectivity or automated-driving software/hardware.
+
 ## Configurability rules
 
 - Cosmetic modularity: body wraps/trim/nonstructural skins, tested mounting points, electronic infotainment modules behind cybersecurity isolation.

@@ -48,6 +48,12 @@ Sources: https://www.nhtsa.gov/sites/nhtsa.gov/files/2023-06/TP-216a-01.pdf ; ht
 - Full-body armoring involves more than windows: door/roof/firewall overlaps, transparency, emergency egress, sensor visibility, GVWR/payload, brake/suspension and post-impact function all interact.
 - Use an independent armoring partner; do not create home retrofit steps for safety-critical security systems.
 
+## Connected vehicle Chinese-origin components / AI legal gate (2026)
+
+The Bureau of Industry and Security (BIS) final rule published January 2025 restricts **specified covered software, hardware and manufacturers** with sufficient China/Russia nexus; see [official connected-vehicles overview](https://media.bis.gov/connected-vehicles). Its phased U.S. prohibitions affect covered software in **model year 2027** and covered connectivity hardware in **model year 2030**. This is not a blanket prohibition on all China-manufactured commodity components. Consult specialized legal counsel on definitions, exemptions and authorization mechanisms before any platform/software partner outreach or import planning. Even U.S. manufacturing does not necessarily solve disallowed covered software ownership/sourcing. A newly introduced 2026 federal Senate bill is *proposed legislation*, not enacted law.
+
+The China competitive benchmark ([read it](CHINA_COMPETITIVE_BENCHMARK.md)) sets product goals only. Chinese market safety test claims are not substitutes for U.S. FMVSS certification or independently validated IIHS results.
+
 ## Next 30 days
 
 - Paid 2–4h review by automotive vehicle certification specialist: list required rule families and estimated cost for US market.

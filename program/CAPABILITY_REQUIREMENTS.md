@@ -76,6 +76,19 @@ Sources: https://www.nhtsa.gov/road-safety/driving-in-severe-weather and https:/
 - No invisible stalking tool: clear ownership transfer process, authorized-driver disclosures, ability to inspect and remove guest access, safety controls for domestic-abuse misuse.
 - "LoJack-like" refers to function, not a partnership or licensed trademark.
 
+## China-competitive technical benchmark and parity gates
+
+See [China Competitive Benchmark](CHINA_COMPETITIVE_BENCHMARK.md) for source-supported 2025/2026 production or manufacturer-claimed examples. Current Chinese vehicles already deliver:
+- **Geely Galaxy M9:** specific trims with AI child protection, vision-assisted climate, refrigerator, rear-seat screen, AI agent, parking and chassis maneuvers.
+- **Lynk & Co 900:** family six-seat cabin, optional rear-steer/diagonal movement, large flexible seating layouts.
+- **AITO M9:** gesture doors, security and rear privacy options.
+- **XPeng X9:** multiple offline voice zones; assisted parking.
+- **Zeekr 9X:** active chassis and rapid charging on compatible installations.
+
+**HAVEN differentiator:** *independently tested child/occupant protection, driver-friendly offline intelligence, reasonable service costs and secure upgradeability.* Availability in China does not establish any HAVEN hardware supply, licensing rights or U.S. legal compliance.
+
+For every proposed intelligent feature, obtain: (a) observed competitor model/trim/year evidence, (b) owner benefit and monthly usage hypothesis, (c) sensor/actuator/cost integration scope, (d) legal/cybersecurity risk classification, (e) field reliability tests, (f) MSRP impact and (g) risk-controlled fallbacks.
+
 ## Realistic priority and cost allocation
 
 **Day-one Core priorities:** conventional robust tow preparation if a licensable platform supports it; trailer stability/sensing; simple rear-camera hitch alignment; voice for climate/nav/occupants; GNSS security locator; practical puncture recovery. These still need BOM and vendor quotes.

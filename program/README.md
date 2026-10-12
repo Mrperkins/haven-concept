@@ -71,6 +71,7 @@ The targets are planning gates, not statistical proof of demand. A partner decli
 ## Artifacts
 
 - [Product requirements](PRODUCT_REQUIREMENTS.md)
+- [China benchmark and value-parity evidence](CHINA_COMPETITIVE_BENCHMARK.md)
 - [Capability program: towing, water, parking, voice and anti-theft](CAPABILITY_REQUIREMENTS.md)
 - [Safety and regulatory risk register](SAFETY_REGULATORY.md)
 - [Partner shortlist and nonconfidential RFI](PARTNERS_RFI.md)
