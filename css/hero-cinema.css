@@ -159,3 +159,96 @@
   .hero-mobile-plate>i{animation:none}
   .hero .hero-media .hero-poster{opacity:1!important}
 }
+
+/* ================= V3 | VISIBLE MOTION DESIGN SYSTEM =================
+   First-screen graphics are browser-native, separately editable layers.
+   They animate independently of video playback, except for users whose
+   system requests reduced motion (manual film preview remains available).
+   Critical labels/graphics are HTML, not burned into an MP4. */
+.hero-motion-graphics{position:absolute;inset:0;z-index:9;pointer-events:none;overflow:hidden;isolation:isolate}
+.motion-wipe{position:absolute;inset:0;background:linear-gradient(96deg,#07080a 8%,#141113 65%,#060608);transform:translateX(105%);animation:havenCurtain 1.85s cubic-bezier(.71,0,.24,1) .35s backwards;opacity:.97}
+@keyframes havenCurtain{0%{transform:translateX(0)}100%{transform:translateX(105%)}}
+.motion-beam{position:absolute;inset:-30% auto -30% -80%;width:54%;background:linear-gradient(90deg,transparent,rgba(244,198,130,.035) 34%,rgba(255,230,184,.37) 49.7%,rgba(255,255,255,.56) 50%,rgba(255,218,151,.055) 59%,transparent);transform:skewX(-18deg) translateX(-110%);mix-blend-mode:screen;filter:blur(3px);animation:havenBeam 7.2s cubic-bezier(.34,.02,.5,.96) 1.35s infinite}
+@keyframes havenBeam{0%,8%{left:-85%;opacity:0}14%{opacity:.88}58%{left:135%;opacity:1}65%,100%{left:135%;opacity:0}}
+.motion-corner{position:absolute;width:28px;height:28px;border-color:rgba(255,213,143,.85);border-style:solid;border-width:0;filter:drop-shadow(0 0 5px rgba(211,163,99,.4));opacity:0;animation:havenBracket 1.1s 1.65s cubic-bezier(.2,.7,.2,1) forwards}
+.motion-corner-tl{top:11%;left:4%;border-top-width:1px;border-left-width:1px}
+.motion-corner-tr{top:11%;right:4%;border-top-width:1px;border-right-width:1px}
+.motion-corner-bl{bottom:15%;left:4%;border-bottom-width:1px;border-left-width:1px}
+.motion-corner-br{bottom:15%;right:4%;border-bottom-width:1px;border-right-width:1px}
+@keyframes havenBracket{from{opacity:0;transform:scale(1.8)}to{opacity:.8;transform:scale(1)}}
+.motion-measure{position:absolute;bottom:20%;left:5%;width:23%;display:flex;align-items:center;gap:8px;font-size:9px;letter-spacing:.17em;color:#eed8b5;white-space:nowrap;text-shadow:0 1px 7px #000;animation:havenIn .75s 1.65s both}
+.motion-measure i{width:12px;height:1px;background:rgba(238,206,148,.9)}
+.motion-measure i:last-child{flex:1;min-width:9px}
+@keyframes havenIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+.motion-projection{position:absolute;right:7%;top:32%;width:12%;height:34%;display:flex;flex-direction:column;justify-content:space-between;align-items:flex-end;opacity:0;animation:havenIn .9s 1.8s both}
+.motion-projection i{height:1px;width:100%;background:linear-gradient(90deg,transparent,rgba(255,210,143,.75));box-shadow:0 0 12px rgba(244,188,105,.45)}
+.motion-projection i:nth-child(2){width:58%;animation:havenData 2.8s ease-in-out 2.3s infinite alternate}
+.motion-projection i:nth-child(3){width:80%}
+@keyframes havenData{to{width:94%}}
+.motion-track{position:absolute;left:4%;right:4%;bottom:9%;height:2px;background:rgba(255,255,255,.17);box-shadow:0 0 0 1px rgba(0,0,0,.35);overflow:hidden;animation:havenIn .8s 1.65s both}
+.motion-track-fill{height:100%;display:block;width:100%;transform:translateX(-100%);background:linear-gradient(90deg,rgba(186,144,84,.2),#f2c486,#fff2ce);box-shadow:0 0 12px rgba(243,189,103,.88);animation:havenTrack 6.05s linear 1.6s infinite}
+@keyframes havenTrack{0%{transform:translateX(-100%)}100%{transform:translateX(0)}}
+
+/* Film action remains visible even when iOS Low Power / accessibility blocks autoplay. */
+.hero-watch{position:absolute;z-index:14;display:inline-flex;align-items:center;gap:13px;right:var(--pad);bottom:clamp(160px,27vh,250px);min-height:50px;padding:0 15px;border:1px solid rgba(250,230,195,.57);background:rgba(6,7,9,.8);color:#f6eddf;border-radius:3px;font-size:10px;font-weight:600;letter-spacing:.13em;white-space:nowrap;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 6px 27px rgba(0,0,0,.33);transition:border-color .3s,background .3s,transform .3s}
+.hero-watch:hover,.hero-watch:focus-visible{background:rgba(34,25,18,.94);border-color:#f2cf9c;transform:translateY(-2px)}
+.hero-watch-play{width:22px;height:22px;display:grid;place-items:center;border-radius:50%;border:1px solid #dbb179;background:rgba(219,177,121,.16);box-shadow:0 0 0 4px rgba(219,177,121,.08);animation:havenPlayPulse 2.6s ease-in-out 2s infinite}
+.hero-watch-play::after{content:"";display:block;width:0;height:0;margin-left:2px;border-left:7px solid #fbe4bf;border-top:5px solid transparent;border-bottom:5px solid transparent}
+@keyframes havenPlayPulse{0%,100%{box-shadow:0 0 0 4px rgba(219,177,121,.08)}50%{box-shadow:0 0 0 9px rgba(219,177,121,.03)}}
+.hero-watch-time{font-size:9px;font-weight:400;letter-spacing:.09em;color:#d3b58d;border-left:1px solid rgba(255,255,255,.27);padding-left:11px}
+.hero-film-dialog[hidden]{display:none!important}
+.hero-film-dialog{position:fixed;z-index:600;inset:0;padding:calc(24px + env(safe-area-inset-top,0px)) clamp(16px,4vw,60px) calc(24px + env(safe-area-inset-bottom,0px));display:flex;flex-direction:column;justify-content:center;gap:22px;background:rgba(1,2,4,.97);backdrop-filter:blur(32px);-webkit-backdrop-filter:blur(32px);color:#fff}
+.film-dialog-bar{display:flex;align-items:center;justify-content:space-between;gap:15px;font-size:18px;letter-spacing:.22em;font-weight:300}
+.film-dialog-wordmark small{font-size:10px;letter-spacing:.18em;color:#d4ae78}
+.film-dialog-close{display:flex;align-items:center;gap:10px;border:1px solid #847b6c;background:rgba(255,255,255,.06);padding:9px 14px;min-height:44px;font-size:10px;font-weight:500;letter-spacing:.16em;border-radius:3px}
+.film-dialog-close span{font-size:21px;font-weight:200;line-height:1}
+.film-dialog-close:hover{border-color:#fff;background:rgba(255,255,255,.1)}
+.film-dialog-stage{display:grid;place-items:center;min-height:0;flex:0 1 auto;background:#030304;border:1px solid rgba(255,255,255,.15);box-shadow:0 15px 80px rgba(0,0,0,.6)}
+.film-dialog-stage video{display:block;width:100%;height:auto;max-height:min(70svh,800px);object-fit:contain}
+.film-dialog-disclosure{font-size:10px;letter-spacing:.14em;color:#b8b0a3;text-transform:uppercase;line-height:1.5}
+body.film-dialog-open{overflow:hidden!important}
+
+/* Vehicle modules also visibly animate as they enter on scroll. */
+@media (prefers-reduced-motion:no-preference){
+  .model.in .model-hud .dot{box-shadow:0 0 0 4px rgba(216,178,116,.13),0 0 24px #dcb988;animation:havenPlayPulse 2.5s infinite}
+  .model.in .model-hud::after{content:"";display:block;width:35px;height:1px;background:#d7ad73;transform-origin:left;animation:havenLineEnter 1.25s 1;opacity:.9}
+  @keyframes havenLineEnter{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+}
+@media(max-width:700px){
+  .hero-motion-graphics{inset:0;z-index:9}
+  .motion-corner{width:22px;height:22px}
+  .motion-corner-tl{left:4%;top:15%}
+  .motion-corner-tr{right:4%;top:15%}
+  .motion-corner-bl{left:4%;bottom:17%}
+  .motion-corner-br{right:4%;bottom:17%}
+  .motion-beam{width:75%;background:linear-gradient(90deg,transparent,rgba(241,191,113,.09) 35%,rgba(255,235,190,.44) 49%,rgba(255,255,255,.48) 50%,transparent 64%)}
+  .motion-projection{right:7%;top:38%;width:18%;height:27%}
+  .motion-measure{display:none}
+  .motion-track{left:5%;right:5%;bottom:12%;height:2px}
+  .hero-watch{top:149px;bottom:auto;right:var(--pad);height:42px;min-height:42px;gap:10px;padding:0 11px;font-size:9px;letter-spacing:.075em}
+  .hero-watch-play{width:22px;height:22px}
+  .hero-watch-time{display:none}
+  .hero-scene{z-index:12}
+  .film-dialog-wordmark small{display:block;margin-top:4px}
+  .film-dialog-stage video{max-height:65svh}
+}
+@media(max-width:360px){
+  .hero-watch{top:148px;right:var(--pad);font-size:8px}
+  .motion-projection{right:6%}
+}
+/* Honor accessibility defaults, but always offer the manually initiated video dialog. */
+@media(prefers-reduced-motion:reduce){
+  .motion-wipe,.motion-beam,.motion-projection,.motion-measure,.motion-corner,.motion-track-fill,
+  .hero-watch-play,.motion-projection i{animation:none!important}
+  .motion-wipe,.motion-beam{display:none!important}
+  .motion-corner,.motion-projection,.motion-measure{opacity:.7}
+  .motion-track-fill{transform:none}
+  .hero-watch{transition:none}
+}
+
+/* When the user presses Pause Motion, freeze every cosmetic hero layer too. */
+.hero.motion-paused .hero-motion-graphics *,
+.hero.motion-paused .hero-watch-play,
+.hero.motion-paused .hero-sweep,
+.hero.motion-paused .hero-scene-line,
+.hero.motion-paused .hero-mobile-plate i{animation-play-state:paused!important}
