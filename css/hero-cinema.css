@@ -245,3 +245,10 @@ body.film-dialog-open{overflow:hidden!important}
   .motion-track-fill{transform:none}
   .hero-watch{transition:none}
 }
+
+/* When the user presses Pause Motion, freeze every cosmetic hero layer too. */
+.hero.motion-paused .hero-motion-graphics *,
+.hero.motion-paused .hero-watch-play,
+.hero.motion-paused .hero-sweep,
+.hero.motion-paused .hero-scene-line,
+.hero.motion-paused .hero-mobile-plate i{animation-play-state:paused!important}
