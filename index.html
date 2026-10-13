@@ -18,8 +18,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&display=swap" rel="stylesheet">
 <link rel="preload" as="image" href="assets/p1-hero.webp">
 <link rel="stylesheet" href="css/site.css">
+<link rel="stylesheet" href="css/hero-cinema.css">
 <script>document.documentElement.className='js';</script>
 <script defer src="js/site.js"></script>
+<script defer src="js/hero-cinema.js"></script>
 </head>
 <body>
 <div class="boot" id="boot" aria-hidden="true">
@@ -71,7 +73,10 @@
   <!-- HERO -->
   <section class="hero" id="top" aria-labelledby="heroTitle">
     <div class="hero-media" id="heroMedia">
-      <img src="assets/p1-hero.webp" alt="HAVEN P1 four-door sports sedan concept in a dark showroom with warm light panels" fetchpriority="high">
+      <img class="hero-poster" src="assets/p1-hero.webp" alt="HAVEN P1 four-door sports sedan concept in a dark showroom with warm light panels" fetchpriority="high">
+      <video class="hero-film" id="heroFilm" autoplay muted loop playsinline preload="metadata" poster="assets/p1-hero.webp" aria-hidden="true" tabindex="-1" disablepictureinpicture disableremoteplayback>
+        <source src="assets/haven-hero-motion.mp4" type="video/mp4">
+      </video>
       <div class="hero-sweep" aria-hidden="true"></div>
       <div class="hero-shade" aria-hidden="true"></div>
       <canvas class="hero-dust" id="heroDust" aria-hidden="true"></canvas>
@@ -84,6 +89,7 @@
         <div class="hud-tele"><span id="teleK">Program</span><b id="teleV">HAVEN Concept Studio</b></div>
       </div>
     </div>
+    <div class="hero-scene" aria-hidden="true"><span class="hero-scene-line"></span><span>01 / DESIGN STUDY</span><span class="hero-scene-dot"></span><span>HAVEN P1</span></div>
     <div class="hero-content" id="heroContent">
       <p class="eyebrow" data-intro="0">HAVEN MOTORS &nbsp;·&nbsp; CONCEPT STUDIO 2026</p>
       <h1 id="heroTitle">
@@ -98,6 +104,7 @@
     </div>
     <div class="hero-foot" data-intro="5">
       <span class="stamp">Exploratory renderings · not offered for sale</span>
+      <button class="hero-motion-toggle" id="heroMotionToggle" type="button" aria-label="Pause background motion" aria-pressed="true" hidden><span class="hero-motion-icon" aria-hidden="true"></span><span id="heroMotionLabel">Pause motion</span></button>
       <a class="scroll-cue" href="#philosophy" aria-label="Scroll to explore"><i></i><span>Scroll</span></a>
     </div>
   </section>
