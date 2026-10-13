@@ -53,9 +53,11 @@
   toggle.addEventListener('click', () => {
     if (!video.paused && hero.classList.contains('film-ready')) {
       optedOut = true;
+      hero.classList.add('motion-paused');
       stop();
     } else {
       optedOut = false;
+      hero.classList.remove('motion-paused');
       start();
     }
   });
@@ -82,4 +84,59 @@
   if (reduce.matches || saveData) { video.removeAttribute('autoplay'); video.pause(); return; }
   // Poster-first: actual film only reveals after a successful playback event.
   if (video.readyState >= 2) {ready=true;start();}
+})();
+
+/* Explicit, native playback on iOS: no reliance on background autoplay. */
+(() => {
+  'use strict';
+  const button = document.getElementById('heroWatch');
+  const layer = document.getElementById('heroFilmDialog');
+  const close = document.getElementById('heroFilmClose');
+  const film = document.getElementById('heroFilmFull');
+  const bgFilm = document.getElementById('heroFilm');
+  if (!button || !layer || !close || !film) return;
+  let previousFocus = null;
+  let bgWasPlaying = false;
+
+  const closeFilm = () => {
+    if (layer.hidden) return;
+    film.pause();
+    layer.hidden = true;
+    document.body.classList.remove('film-dialog-open');
+    if (bgWasPlaying && bgFilm && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      bgFilm.play().catch(() => {});
+    }
+    if (previousFocus && previousFocus.isConnected) previousFocus.focus();
+  };
+  button.addEventListener('click', () => {
+    previousFocus = document.activeElement;
+    bgWasPlaying = Boolean(bgFilm && !bgFilm.paused);
+    if (bgFilm) bgFilm.pause();
+    layer.hidden = false;
+    document.body.classList.add('film-dialog-open');
+    close.focus();
+    if (!film.getAttribute('src')) {
+      film.src = 'assets/haven-hero-motion.mp4';
+      film.load();
+    }
+    film.currentTime = 0;
+    film.muted = true;
+    const playing = film.play();
+    if (playing && playing.catch) playing.catch(() => {
+      // Native controls remain available if Safari requires another gesture.
+      film.controls = true;
+    });
+  });
+  close.addEventListener('click', closeFilm);
+  layer.addEventListener('click', (event) => { if (event.target === layer) closeFilm(); });
+  document.addEventListener('keydown', (event) => {
+    if (layer.hidden) return;
+    if (event.key === 'Escape') { event.preventDefault(); closeFilm(); }
+    if (event.key === 'Tab') {
+      const focusable = [close,film].filter(el=>!el.disabled);
+      const at = focusable.indexOf(document.activeElement);
+      if (event.shiftKey && at === 0) {event.preventDefault();film.focus();}
+      if (!event.shiftKey && at === focusable.length - 1) {event.preventDefault();close.focus();}
+    }
+  });
 })();
