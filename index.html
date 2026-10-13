@@ -18,10 +18,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&display=swap" rel="stylesheet">
 <link rel="preload" as="image" href="assets/p1-hero.webp">
 <link rel="stylesheet" href="css/site.css">
-<link rel="stylesheet" href="css/hero-cinema.css?v=mobile-v2">
+<link rel="stylesheet" href="css/hero-cinema.css?v=motion-v3">
 <script>document.documentElement.className='js';</script>
 <script defer src="js/site.js"></script>
-<script defer src="js/hero-cinema.js?v=mobile-v2"></script>
+<script defer src="js/hero-cinema.js?v=motion-v3"></script>
 </head>
 <body>
 <div class="boot" id="boot" aria-hidden="true">
@@ -80,6 +80,17 @@
       <div class="hero-sweep" aria-hidden="true"></div>
       <div class="hero-shade" aria-hidden="true"></div>
       <canvas class="hero-dust" id="heroDust" aria-hidden="true"></canvas>
+      <div class="hero-motion-graphics" aria-hidden="true">
+        <span class="motion-wipe"></span>
+        <span class="motion-beam"></span>
+        <span class="motion-corner motion-corner-tl"></span>
+        <span class="motion-corner motion-corner-tr"></span>
+        <span class="motion-corner motion-corner-bl"></span>
+        <span class="motion-corner motion-corner-br"></span>
+        <span class="motion-measure"><i></i><span>DESIGN / 001</span><i></i></span>
+        <span class="motion-projection"><i></i><i></i><i></i></span>
+        <span class="motion-track"><span class="motion-track-fill"></span></span>
+      </div>
     </div>
     <div class="hud" aria-hidden="true">
       <i class="br tl"></i><i class="br tr"></i><i class="br bl"></i><i class="br bR"></i>
@@ -89,6 +100,7 @@
         <div class="hud-tele"><span id="teleK">Program</span><b id="teleV">HAVEN Concept Studio</b></div>
       </div>
     </div>
+    <button type="button" class="hero-watch" id="heroWatch" aria-haspopup="dialog" aria-controls="heroFilmDialog"><span class="hero-watch-play" aria-hidden="true"></span><span>WATCH THE DESIGN FILM</span><span class="hero-watch-time">00:06</span></button>
     <div class="hero-scene" aria-hidden="true"><span class="hero-scene-line"></span><span>01 / DESIGN STUDY</span><span class="hero-scene-dot"></span><span>HAVEN P1</span></div>
     <div class="hero-mobile-plate" aria-hidden="true"><span>01 — 04</span><i></i><strong>P1 / CORE CONCEPT</strong></div>
     <div class="hero-content" id="heroContent">
@@ -468,6 +480,11 @@
   <button id="lightboxClose" aria-label="Close expanded image">×</button>
   <img id="lightboxImage" alt="">
   <div id="lightboxCaption"></div>
+</div>
+<div class="hero-film-dialog" id="heroFilmDialog" role="dialog" aria-modal="true" aria-labelledby="heroFilmDialogTitle" hidden>
+  <div class="film-dialog-bar"><span class="film-dialog-wordmark" id="heroFilmDialogTitle">HΛVEN <small>/ DESIGN FILM 001</small></span><button type="button" id="heroFilmClose" class="film-dialog-close" aria-label="Close design film">CLOSE <span aria-hidden="true">×</span></button></div>
+  <div class="film-dialog-stage"><video id="heroFilmFull" controls playsinline preload="none" poster="assets/p1-hero.webp" aria-label="Six-second HAVEN P1 animated design concept"></video></div>
+  <p class="film-dialog-disclosure">AI-generated design study · exploratory concept · not a production vehicle</p>
 </div>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 </body>
